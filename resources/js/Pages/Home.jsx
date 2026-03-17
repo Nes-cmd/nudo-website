@@ -1,0 +1,397 @@
+import { useEffect, useRef, useState } from 'react';
+import { Link } from '@inertiajs/react';
+import MainLayout from '../Layouts/MainLayout';
+
+export default function Home({ rooms = [], businesses = [] }) {
+    const scrollRef = useRef(null);
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [heroImageIndex, setHeroImageIndex] = useState(0);
+
+    const heroImages = [
+        'https://images.pexels.com/photos/323705/pexels-photo-323705.jpeg?auto=compress&cs=tinysrgb&w=1920',
+        'https://images.pexels.com/photos/373912/pexels-photo-373912.jpeg?auto=compress&cs=tinysrgb&w=1920',
+        'https://images.pexels.com/photos/443383/pexels-photo-443383.jpeg?auto=compress&cs=tinysrgb&w=1920',
+        'https://images.pexels.com/photos/325185/pexels-photo-325185.jpeg?auto=compress&cs=tinysrgb&w=1920',
+    ];
+
+    const openRooms = rooms;
+
+    const scrollToIndex = (index) => {
+        const el = scrollRef.current;
+        if (!el) return;
+        const slides = el.children;
+        if (!slides || !slides[index]) return;
+
+        const target = slides[index];
+        el.scrollTo({
+            left: target.offsetLeft,
+            behavior: 'smooth',
+        });
+        setActiveIndex(index);
+    };
+
+    // Hero image rotation
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setHeroImageIndex((prev) => (prev + 1) % heroImages.length);
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, [heroImages.length]);
+
+    // Gallery auto-scroll
+    useEffect(() => {
+        const el = scrollRef.current;
+        if (!el || businesses.length === 0) return;
+
+        const slides = el.children;
+        if (!slides || !slides.length) return;
+
+        let index = 0;
+        const interval = setInterval(() => {
+            index = (index + 1) % slides.length;
+            scrollToIndex(index);
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, [businesses.length]);
+
+    return (
+        <MainLayout title="Home">
+            {/* Full-width Hero Section */}
+            <section className="relative w-full h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+                {/* Background Images with smooth transitions */}
+                <div className="absolute inset-0">
+                    {heroImages.map((image, index) => (
+                        <div
+                            key={index}
+                            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                                heroImageIndex === index ? 'opacity-100' : 'opacity-0'
+                            }`}
+                        >
+                            <img
+                                src={image}
+                                alt={`Nudo Commercial Building ${index + 1}`}
+                                className="h-full w-full object-cover"
+                            />
+                        </div>
+                    ))}
+                    {/* Dark overlay for text readability */}
+                    <div className="absolute inset-0 bg-black/60" />
+                    {/* Gradient overlay with primary color accent */}
+                    <div className="absolute inset-0 bg-linear-to-r from-primary-900/80 via-black/50 to-primary-800/70" />
+                </div>
+
+                {/* Content */}
+                <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                    <div className="max-w-4xl mx-auto text-center text-white">
+                        <span className="inline-flex items-center rounded-full bg-primary-500/20 px-4 py-2 text-xs font-medium tracking-wide uppercase text-white/90 border border-primary-400/30 backdrop-blur-sm mb-6">
+                            Premium Commercial Building
+                        </span>
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
+                            Welcome to{' '}
+                            <span className="bg-clip-text text-transparent bg-linear-to-r from-primary-300 via-primary-100 to-primary-400">
+                                Nudo
+                            </span>
+                        </h1>
+                        <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8 leading-relaxed">
+                            A premier commercial building where businesses thrive, services excel, and innovation meets opportunity.
+                            Discover premium office spaces, professional services, and collaborative environments.
+                        </p>
+
+                        <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
+                            <Link
+                                href="/businesses"
+                                className="inline-flex items-center rounded-full bg-white text-gray-900 px-6 py-3 text-base font-semibold shadow-xl hover:bg-gray-100 transition-all hover:scale-105"
+                            >
+                                Explore Businesses
+                                <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </Link>
+                            <Link
+                                href="/open-rooms"
+                                className="inline-flex items-center rounded-full border-2 border-primary-400/60 bg-primary-500/20 backdrop-blur-sm px-6 py-3 text-base font-medium text-white hover:bg-primary-500/30 hover:border-primary-300/80 transition-all hover:scale-105"
+                            >
+                                View Open Rooms
+                            </Link>
+                        </div>
+
+                        {/* Stats */}
+                        <dl className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
+                            <div className="space-y-2">
+                                <dt className="text-white/80 text-sm uppercase tracking-wide">Businesses</dt>
+                                <dd className="text-3xl sm:text-4xl font-bold">50+</dd>
+                            </div>
+                            <div className="space-y-2">
+                                <dt className="text-white/80 text-sm uppercase tracking-wide">Services</dt>
+                                <dd className="text-3xl sm:text-4xl font-bold">200+</dd>
+                            </div>
+                            <div className="space-y-2">
+                                <dt className="text-white/80 text-sm uppercase tracking-wide">Active Rooms</dt>
+                                <dd className="text-3xl sm:text-4xl font-bold">32</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+
+                {/* Scroll indicator */}
+                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+                    <div className="animate-bounce">
+                        <svg className="h-6 w-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </div>
+                </div>
+            </section>
+
+            {/* Available Rooms for Rent Section */}
+            <section className="bg-linear-to-br from-primary-50 via-white to-sky-50 py-16 sm:py-20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-12">
+                        <span className="inline-flex items-center rounded-full bg-primary-100 px-4 py-2 text-xs font-medium text-primary-700 uppercase tracking-wide mb-4">
+                            Available Now
+                        </span>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                            Rooms <span className="text-primary-600">Available for Rent</span>
+                        </h2>
+                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                            Premium meeting spaces and conference rooms available for monthly rental. Perfect for your business needs.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {openRooms.map((room) => (
+                            <div
+                                key={room.id}
+                                className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary-300"
+                            >
+                                {/* Room Image */}
+                                <div className="relative h-48 overflow-hidden">
+                                    <img
+                                        src={room.image}
+                                        alt={room.name}
+                                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    />
+                                    <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent" />
+                                    
+                                    {/* Available badge */}
+                                    <div className="absolute top-4 right-4">
+                                        <span className="inline-flex items-center rounded-full bg-emerald-500 px-3 py-1 text-xs font-medium text-white shadow-lg">
+                                            Available
+                                        </span>
+                                    </div>
+
+                                    {/* Floor badge */}
+                                    <div className="absolute bottom-4 left-4">
+                                        <span className="inline-flex items-center rounded-md bg-white/90 backdrop-blur-sm px-2.5 py-1 text-xs font-medium text-gray-900">
+                                            {room.floor}
+                                        </span>
+                                    </div>
+                                </div>
+
+                                {/* Content */}
+                                <div className="p-6">
+                                    {/* Room name */}
+                                    <Link href={`/open-rooms/${room.id}`}>
+                                        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors cursor-pointer">
+                                            {room.name}
+                                        </h3>
+                                    </Link>
+
+                                    {/* Description */}
+                                    <p className="text-sm text-gray-600 mb-4">
+                                        {room.description}
+                                    </p>
+
+                                    {/* Size and capacity */}
+                                    <div className="flex items-center gap-4 mb-4 text-xs text-gray-500">
+                                        <span className="flex items-center gap-1">
+                                            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                                            </svg>
+                                            {room.size}
+                                        </span>
+                                        <span className="flex items-center gap-1">
+                                            <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                            </svg>
+                                            Up to {room.capacity} people
+                                        </span>
+                                    </div>
+
+                                    {/* Features */}
+                                    <div className="flex flex-wrap gap-2 mb-4">
+                                        {room.features.map((feature) => (
+                                            <span
+                                                key={feature}
+                                                className="inline-flex items-center rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-700"
+                                            >
+                                                {feature}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    {/* Price and booking */}
+                                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                                        <div>
+                                            <div className="flex items-baseline gap-1">
+                                                <span className="text-2xl font-bold text-gray-900">
+                                                    {room.price}
+                                                </span>
+                                                <span className="text-xs text-gray-500">
+                                                    ETB
+                                                </span>
+                                            </div>
+                                            <span className="text-xs text-gray-500">
+                                                {room.period}
+                                            </span>
+                                        </div>
+                                        <Link
+                                            href={`/open-rooms/${room.id}`}
+                                            className="inline-flex items-center rounded-lg bg-primary-600 px-4 py-2 text-xs font-medium text-white hover:bg-primary-700 transition-colors"
+                                        >
+                                            Book Now
+                                            <svg className="ml-1.5 h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </Link>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* View all link */}
+                    <div className="text-center mt-10">
+                        <Link
+                            href="/open-rooms"
+                            className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors"
+                        >
+                            View all available rooms
+                            <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+
+                {/* Businesses Section */}
+                {businesses.length > 0 && (
+                    <div className="mt-16 space-y-6">
+                        <div className="flex items-center justify-between gap-4 mb-3">
+                            <div>
+                                <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">
+                                    Businesses in Nudo Commercial Center
+                                </h2>
+                                <p className="mt-1 text-sm text-gray-600">
+                                    Discover the diverse range of businesses thriving in our commercial center.
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Horizontal scrollable businesses gallery */}
+                        <div className="relative">
+                        {/* Gradient edges */}
+                        <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-linear-to-r from-gray-50 via-gray-50/0 z-10" />
+                        <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-linear-to-l from-gray-50 via-gray-50/0 z-10" />
+
+                        <div
+                            ref={scrollRef}
+                            className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide"
+                            style={{ scrollSnapType: 'x mandatory' }}
+                        >
+                            {businesses.map((business) => (
+                                <article
+                                    key={business.id}
+                                    className="group relative flex-none w-[85vw] sm:w-[70vw] lg:w-[50vw] overflow-hidden rounded-3xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100/70 snap-start"
+                                >
+                                    {/* Image */}
+                                    <div className="relative h-64 sm:h-80 md:h-88 overflow-hidden">
+                                        <img
+                                            src={business.image}
+                                            alt={business.name}
+                                            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                        />
+                                        <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/15 to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
+                                        
+                                        {/* Category badge */}
+                                        <div className="absolute top-4 left-4">
+                                            <span className="inline-flex items-center rounded-full bg-white/15 backdrop-blur px-3 py-1 text-[11px] font-medium uppercase tracking-wide text-white border border-white/20">
+                                                {business.category}
+                                            </span>
+                                        </div>
+
+                                        {/* Name overlay */}
+                                        <div className="absolute bottom-4 left-4 right-4">
+                                            <h3 className="text-xl sm:text-2xl font-semibold text-white drop-shadow-sm mb-2">
+                                                {business.name}
+                                            </h3>
+                                            <p className="text-sm text-white/90 line-clamp-2">
+                                                {business.description}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* Services preview */}
+                                    <div className="p-4 bg-white">
+                                        <div className="flex flex-wrap gap-2">
+                                            {business.services.slice(0, 3).map((service) => (
+                                                <span
+                                                    key={service}
+                                                    className="inline-flex items-center rounded-full bg-primary-50 px-2.5 py-1 text-xs font-medium text-primary-700"
+                                                >
+                                                    {service}
+                                                </span>
+                                            ))}
+                                            {business.services.length > 3 && (
+                                                <span className="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-600">
+                                                    +{business.services.length - 3} more
+                                                </span>
+                                            )}
+                                        </div>
+                                    </div>
+                                </article>
+                            ))}
+                        </div>
+                    </div>
+
+                        {/* Dots */}
+                        <div className="flex justify-center gap-2 pt-2">
+                            {businesses.map((business, index) => (
+                                <button
+                                    key={business.id}
+                                    type="button"
+                                    onClick={() => scrollToIndex(index)}
+                                    className={`h-2.5 rounded-full transition-all ${
+                                        activeIndex === index
+                                            ? 'w-6 bg-primary-500'
+                                            : 'w-2.5 bg-gray-300'
+                                    }`}
+                                    aria-label={`Go to slide ${index + 1}`}
+                                />
+                            ))}
+                        </div>
+
+                        {/* View all link */}
+                        <div className="text-center mt-6">
+                            <Link
+                                href="/businesses"
+                                className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors"
+                            >
+                                View all businesses
+                                <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </Link>
+                        </div>
+                    </div>
+                )}
+            </div>
+        </MainLayout>
+    );
+}
+
