@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Room;
 use App\Models\Business;
+use App\Models\HeroImage;
 
 class HomeController extends Controller
 {
@@ -22,11 +23,18 @@ class HomeController extends Controller
 
         $businesses = Business::where('available', true)
             ->limit(5)
+            ->orderBy('sort')
+            ->get();
+
+        $heroes = HeroImage::where('active', true)
+            ->orderBy('sort')
+            ->orderByDesc('created_at')
             ->get();
 
         return Inertia::render('Home', [
             'rooms' => $rooms,
             'businesses' => $businesses,
+            'heroes' => $heroes,
         ]);
     }
 }

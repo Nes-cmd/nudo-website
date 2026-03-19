@@ -17,6 +17,7 @@ class Business extends Model
         'category',
         'image',
         'website',
+        'sort',
         'services',
         'available',
     ];
@@ -30,5 +31,6 @@ class Business extends Model
         'services' => 'array',
         'available' => 'boolean',
         'image' => 'array',
+        'sort' => 'integer',
     ];
 }

@@ -20,6 +20,7 @@ export default function BusinessEdit({ business }) {
         website: business.website || '',
         servicesText: (business.services || []).join(', '),
         available: !!business.available,
+        sort: business.sort,
     });
 
     const handleChange = (e) => {
@@ -50,6 +51,7 @@ export default function BusinessEdit({ business }) {
                 ? form.servicesText.split(',').map((s) => s.trim()).filter(Boolean)
                 : [],
             available: form.available,
+            sort: form.sort 
         };
 
         payload.keep_images = keptImages;
@@ -222,6 +224,24 @@ export default function BusinessEdit({ business }) {
                             {errors.website && (
                                 <p className="mt-1 text-xs text-red-600 dark:text-red-400">
                                     {errors.website}
+                                </p>
+                            )}
+                        </div>
+                        <div>
+                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
+                                Sort order
+                            </label>
+                            <input
+                                type="number"
+                                name="sort"
+                                value={form.sort ?? 0}
+                                onChange={handleChange}
+                                className="mt-1 block w-full rounded-lg border-gray-300 dark:border-slate-700 dark:bg-slate-900 dark:text-gray-100 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+                                placeholder="5"
+                            />
+                            {errors.sort && (
+                                <p className="mt-1 text-xs text-red-600 dark:text-red-400">
+                                    {errors.sort}
                                 </p>
                             )}
                         </div>

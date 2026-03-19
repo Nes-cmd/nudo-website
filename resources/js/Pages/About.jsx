@@ -3,34 +3,40 @@ import MainLayout from '../Layouts/MainLayout';
 export default function About() {
     const milestones = [
         {
-            year: '1995',
-            title: 'Foundation',
-            description: 'Nudo Commercial Building was established, marking the beginning of a new era in commercial real estate.',
-        },
-        {
-            year: '2000',
-            title: 'First Expansion',
-            description: 'Completed first major expansion, doubling our capacity and welcoming 20+ new businesses.',
+            year: '2008',
+            title: 'Vision Becomes Reality',
+            description:
+                'A group of visionary members come together to invest in a modern commercial building around Piassa T/Haymanot.',
         },
         {
             year: '2010',
-            title: 'Modernization',
-            description: 'Underwent comprehensive modernization, introducing state-of-the-art facilities and sustainable practices.',
+            title: 'Opening of Nudo Market Center',
+            description:
+                'The building officially opens its doors and starts welcoming shops, offices and service providers.',
         },
         {
             year: '2015',
-            title: 'Award Recognition',
-            description: 'Received the prestigious Commercial Building Excellence Award for outstanding service and innovation.',
+            title: 'Growing Tenant Community',
+            description:
+                'Nudo Market Center becomes a known address in the area, hosting a diverse mix of businesses and visitors every day.',
         },
         {
-            year: '2020',
-            title: 'Digital Transformation',
-            description: 'Launched digital platform to enhance tenant experience and streamline operations.',
+            year: '2019',
+            title: 'Facility Improvements',
+            description:
+                'Common areas, security and internal services are improved to keep the building clean, safe and organized.',
         },
         {
-            year: '2024',
-            title: 'Continued Growth',
-            description: 'Celebrating nearly 30 years of excellence with 50+ businesses and 200+ services.',
+            year: '2023',
+            title: 'Modern Management',
+            description:
+                'The management starts adopting more structured processes and tools to better serve tenants and visitors.',
+        },
+        {
+            year: 'Today',
+            title: 'Looking Ahead',
+            description:
+                'After more than 15 years, Nudo Market Center continues to plan for upgrades, better services and a stronger community.',
         },
     ];
 
@@ -74,10 +80,10 @@ export default function About() {
     ];
 
     const stats = [
-        { label: 'Years of Excellence', value: '30+' },
-        { label: 'Active Businesses', value: '50+' },
-        { label: 'Services Offered', value: '200+' },
-        { label: 'Satisfied Tenants', value: '1000+' },
+        { label: 'Years in Operation', value: '15+' },
+        { label: 'Active Businesses', value: '210+' },
+        { label: 'Different Services', value: '300+' },
+        { label: 'Daily Visitors', value: '3000+' },
     ];
 
     return (
@@ -88,17 +94,18 @@ export default function About() {
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl">
                         <span className="inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-sm font-medium mb-6 backdrop-blur-sm">
-                            Since 1995
+                            Around Piassa • T/Haymanot
                         </span>
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
-                            Building Success Stories for{' '}
-                            <span className="bg-clip-text text-transparent bg-linear-to-r from-amber-200 to-yellow-200">
-                                Three Decades
-                            </span>
+                        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+                            A Visionary Market Center In
+                            <p className="bg-clip-text text-transparent bg-linear-to-r from-amber-200 to-yellow-200 dark:text-primary-300">
+                                Addis Ababa
+                            </p>
                         </h1>
                         <p className="text-xl sm:text-2xl text-white/90 leading-relaxed">
-                            Nudo Commercial Building has been a cornerstone of business excellence, providing premium spaces
-                            where innovation meets opportunity and dreams become reality.
+                            Nudo Market Center is a landmark commercial building around Piassa T/Haymanot, built by visionary
+                            members more than 15 years ago. It brings together shops, offices and services in one vibrant,
+                            well‑organized destination.
                         </p>
                     </div>
                 </div>
@@ -131,23 +138,26 @@ export default function About() {
                                 Our Story
                             </span>
                             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-                                A Legacy of Excellence
+                                The Story of Nudo Market Center
                             </h2>
                             <div className="space-y-4 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                                 <p>
-                                    Founded in 1995, Nudo Commercial Building emerged as a vision to create a premier business
-                                    hub that would serve as the foundation for countless success stories. What started as a
-                                    single building has grown into a thriving commercial ecosystem.
+                                    Nudo Market Center was conceived by a group of forward‑thinking members who wanted to create
+                                    a modern, well‑managed commercial building in the heart of Addis Ababa. Around Piassa
+                                    T/Haymanot, they saw the potential for a place where business, community and convenience
+                                    could come together in a single address.
                                 </p>
                                 <p>
-                                    Over the years, we've witnessed businesses grow from startups to industry leaders, hosted
-                                    thousands of meetings and events, and built a community that values collaboration and
-                                    innovation. Our commitment to excellence has made us a trusted name in commercial real estate.
+                                    The building opened its doors more than 15 years ago and has since grown into a trusted
+                                    destination for both tenants and visitors. From small family businesses to established
+                                    brands, many have chosen Nudo as their base because of its location, accessibility and
+                                    professional environment.
                                 </p>
                                 <p>
-                                    Today, Nudo stands as a testament to what can be achieved when vision meets dedication.
-                                    We continue to evolve, embracing new technologies and practices while maintaining the
-                                    values that have guided us for nearly three decades.
+                                    Today, Nudo Market Center continues to evolve while staying true to that original vision:
+                                    a clean, secure and welcoming commercial space where people can work, shop, meet and grow
+                                    together. The building is more than concrete and glass – it is a long‑term commitment from
+                                    its members to serve the surrounding community.
                                 </p>
                             </div>
                         </div>
@@ -160,8 +170,8 @@ export default function About() {
                                 />
                             </div>
                             <div className="absolute -bottom-6 -left-6 bg-white dark:bg-slate-900 rounded-xl p-6 shadow-xl border border-gray-200 dark:border-slate-700 hidden lg:block">
-                                <div className="text-3xl font-bold text-primary-600 dark:text-primary-300 mb-1">30+</div>
-                                <div className="text-sm text-gray-600 dark:text-gray-300">Years Serving Businesses</div>
+                                <div className="text-3xl font-bold text-primary-600 dark:text-primary-300 mb-1">15+</div>
+                                <div className="text-sm text-gray-600 dark:text-gray-300">Years of Serving Businesses</div>
                             </div>
                         </div>
                     </div>
@@ -176,10 +186,10 @@ export default function About() {
                             Our Journey
                         </span>
                         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                            Milestones & Achievements
+                            Milestones Along the Way
                         </h2>
                         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                            Key moments that have shaped our journey and contributed to our success
+                            Key moments that have shaped Nudo Market Center into the building it is today
                         </p>
                     </div>
 
@@ -253,18 +263,19 @@ export default function About() {
                     <span className="inline-flex items-center rounded-full bg-primary-100 dark:bg-primary-500/15 px-4 py-2 text-xs font-medium text-primary-700 dark:text-primary-300 uppercase tracking-wide mb-4">
                         Our Mission
                     </span>
-                    <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-                        Empowering Business Success
-                    </h2>
-                    <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
-                        To provide exceptional commercial spaces and services that enable businesses to thrive,
-                        innovate, and achieve their full potential. We are committed to creating an environment
-                        where every tenant can succeed and contribute to a vibrant business community.
-                    </p>
+                        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                            A Practical, Welcoming Place for Business
+                        </h2>
+                        <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+                            Our mission is simple: to keep Nudo Market Center a clean, safe and accessible building where
+                            businesses can operate smoothly and customers feel comfortable to visit. We focus on good
+                            management, clear communication and steady improvement rather than short‑term promises.
+                        </p>
                     <div className="bg-primary-50 dark:bg-primary-500/10 rounded-xl p-8 border border-primary-100 dark:border-primary-700/60">
                         <p className="text-lg text-gray-700 dark:text-gray-200 italic">
-                            "Building not just spaces, but foundations for success. That's what Nudo has been
-                            doing for nearly three decades, and that's what we'll continue to do for generations to come."
+                            "Nudo Market Center was built by people who believed in long‑term value, not quick gains.
+                            Our goal is to take care of the building, respect our tenants and be a reliable part of the
+                            Piassa T/Haymanot community for many years to come."
                         </p>
                         <p className="mt-4 text-sm text-gray-600 dark:text-gray-300">
                             — Nudo Commercial Building Leadership

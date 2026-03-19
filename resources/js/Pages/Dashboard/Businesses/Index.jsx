@@ -15,6 +15,7 @@ export default function BusinessIndex({ businesses }) {
         website: '',
         servicesText: '',
         available: true,
+        sort: 5,
     });
 
     const resetForm = () =>
@@ -26,6 +27,7 @@ export default function BusinessIndex({ businesses }) {
             website: '',
             servicesText: '',
             available: true,
+            sort: 5,
         });
 
     const handleChange = (e) => {
@@ -54,6 +56,7 @@ export default function BusinessIndex({ businesses }) {
                 ? form.servicesText.split(',').map((s) => s.trim()).filter(Boolean)
                 : [],
             available: form.available,
+            sort: form.sort ?? 5,
         };
 
         if (form.image.length > 0) {
@@ -283,6 +286,32 @@ export default function BusinessIndex({ businesses }) {
                                         required
                                     />
                                 </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
+                                        Sort order
+                                    </label>
+                                    <input
+                                        type="number"
+                                        name="sort"
+                                        value={form.sort || ''}
+                                        onChange={handleChange}
+                                        className="mt-1 block w-full rounded-lg border-gray-300 dark:border-slate-700 dark:bg-slate-900 dark:text-gray-100 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+                                        placeholder="0"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
+                                        Services (comma separated)
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="servicesText"
+                                        value={form.servicesText}
+                                        onChange={handleChange}
+                                        className="mt-1 block w-full rounded-lg border-gray-300 dark:border-slate-700 dark:bg-slate-900 dark:text-gray-100 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
+                                        placeholder="Consulting, Design, Development"
+                                    />
+                                </div>
                                 <div className="md:col-span-2">
                                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
                                         Description
@@ -320,19 +349,7 @@ export default function BusinessIndex({ businesses }) {
                                         className="mt-1 block w-full text-sm text-gray-700 dark:text-gray-200 file:mr-3 file:rounded-md file:border-0 file:bg-gray-100 file:px-3 file:py-1.5 file:text-sm file:font-medium file:text-gray-700 hover:file:bg-gray-200 dark:file:bg-slate-800 dark:file:text-gray-200 dark:hover:file:bg-slate-700"
                                     />
                                 </div>
-                                <div className="md:col-span-2">
-                                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
-                                        Services (comma separated)
-                                    </label>
-                                    <input
-                                        type="text"
-                                        name="servicesText"
-                                        value={form.servicesText}
-                                        onChange={handleChange}
-                                        className="mt-1 block w-full rounded-lg border-gray-300 dark:border-slate-700 dark:bg-slate-900 dark:text-gray-100 shadow-sm focus:border-primary-500 focus:ring-primary-500 sm:text-sm"
-                                        placeholder="Consulting, Design, Development"
-                                    />
-                                </div>
+                               
                                 <div className="flex items-center gap-2 md:col-span-2">
                                     <input
                                         id="available"

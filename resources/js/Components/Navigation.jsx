@@ -64,14 +64,7 @@ export default function Navigation() {
                                     >
                                         Dashboard
                                     </Link>
-                                    <Link
-                                        href="/logout"
-                                        method="post"
-                                        as="button"
-                                        className="inline-flex items-center rounded-lg border border-gray-300 dark:border-slate-600 px-4 py-2 text-sm font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
-                                    >
-                                        Log out
-                                    </Link>
+                                   
                                 </>
                             ) : (
                                 <>
@@ -170,15 +163,7 @@ export default function Navigation() {
                                     >
                                         Dashboard
                                     </Link>
-                                    <Link
-                                        href="/logout"
-                                        method="post"
-                                        as="button"
-                                        className="block w-full text-center rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 transition-colors"
-                                        onClick={() => setMobileMenuOpen(false)}
-                                    >
-                                        Log out
-                                    </Link>
+                                   
                                 </>
                             ) : (
                                 <>

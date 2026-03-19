@@ -11,7 +11,9 @@ class BusinessAdminController extends Controller
 {
     public function index()
     {
-        $businesses = Business::orderByDesc('created_at')->paginate(10);
+        $businesses = Business::orderBy('sort')
+            ->orderByDesc('created_at')
+            ->paginate(10);
 
         return Inertia::render('Dashboard/Businesses/Index', [
             'businesses' => $businesses,
@@ -41,6 +43,7 @@ class BusinessAdminController extends Controller
             'image' => ['nullable', 'array'],
             'image.*' => ['image', 'max:2048'],
             'website' => ['nullable', 'string', 'max:255'],
+            'sort' => ['nullable', 'integer'],
             'services' => ['nullable', 'array'],
             'services.*' => ['string', 'max:255'],
             'available' => ['boolean'],
@@ -73,6 +76,7 @@ class BusinessAdminController extends Controller
             'image' => ['nullable', 'array'],
             'image.*' => ['image', 'max:2048'],
             'website' => ['nullable', 'string', 'max:255'],
+            'sort' => ['nullable', 'integer'],
             'services' => ['nullable', 'array'],
             'services.*' => ['string', 'max:255'],
             'available' => ['boolean'],
