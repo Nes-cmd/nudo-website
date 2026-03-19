@@ -4,7 +4,8 @@ import DarkModeToggle from './DarkModeToggle';
 
 export default function Navigation() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const { url } = usePage();
+    const { url, props } = usePage();
+    const { auth } = props;
 
     const navigation = [
         { name: 'Home', href: '/' },
@@ -21,15 +22,12 @@ export default function Navigation() {
     };
 
     return (
-        <nav className="bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200/50 sticky top-0 z-50">
+        <nav className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-sm border-b border-gray-200/50 dark:border-slate-800/60 sticky top-0 z-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-20">
                     <div className="flex items-center">
                         <div className="shrink-0 flex items-center">
-                            <Link 
-                                href="/" 
-                                className="text-2xl sm:text-3xl font-extrabold bg-clip-text text-transparent bg-linear-to-r from-primary-600 via-primary-500 to-primary-600 hover:from-primary-700 hover:via-primary-600 hover:to-primary-700 transition-all duration-300"
-                            >
+                            <Link href="/" className="inline-flex items-center rounded-2xl bg-primary-600 px-3.5 py-2 text-lg sm:text-xl font-extrabold tracking-tight text-white shadow-sm ring-1 ring-primary-400/70 hover:bg-primary-500 hover:ring-primary-300 transition-all">
                                 Nudo
                             </Link>
                         </div>
@@ -42,8 +40,8 @@ export default function Navigation() {
                                         href={item.href}
                                         className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-200 ${
                                             active
-                                                ? 'text-primary-600 bg-primary-50'
-                                                : 'text-gray-600 hover:text-primary-600 hover:bg-gray-50'
+                                                ? 'text-primary-600 bg-primary-50 dark:text-primary-300 dark:bg-slate-800'
+                                                : 'text-gray-600 hover:text-primary-600 hover:bg-gray-50 dark:text-gray-200 dark:hover:text-primary-300 dark:hover:bg-slate-800'
                                         }`}
                                     >
                                         {item.name}
@@ -56,8 +54,41 @@ export default function Navigation() {
                         </div>
                     </div>
                     <div className="flex items-center space-x-3">
-                        <div className="hidden sm:block">
+                        <div className="hidden sm:flex items-center space-x-3">
                             <DarkModeToggle />
+                            {auth?.user ? (
+                                <>
+                                    <Link
+                                        href="/dashboard"
+                                        className="inline-flex items-center rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-400 transition-colors"
+                                    >
+                                        Dashboard
+                                    </Link>
+                                    <Link
+                                        href="/logout"
+                                        method="post"
+                                        as="button"
+                                        className="inline-flex items-center rounded-lg border border-gray-300 dark:border-slate-600 px-4 py-2 text-sm font-semibold text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors"
+                                    >
+                                        Log out
+                                    </Link>
+                                </>
+                            ) : (
+                                <>
+                                    <Link
+                                        href="/login"
+                                        className="text-sm font-semibold text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-300"
+                                    >
+                                        Log in
+                                    </Link>
+                                    <Link
+                                        href="/register"
+                                        className="inline-flex items-center rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-400 transition-colors"
+                                    >
+                                        Sign up
+                                    </Link>
+                                </>
+                            )}
                         </div>
                         <div className="sm:hidden flex items-center space-x-2">
                             <DarkModeToggle />
@@ -128,6 +159,46 @@ export default function Navigation() {
                                 </Link>
                             );
                         })}
+
+                        <div className="mt-4 border-t border-gray-100 pt-4 space-y-2">
+                            {auth?.user ? (
+                                <>
+                                    <Link
+                                        href="/dashboard"
+                                        className="block w-full text-center rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700 transition-colors"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        Dashboard
+                                    </Link>
+                                    <Link
+                                        href="/logout"
+                                        method="post"
+                                        as="button"
+                                        className="block w-full text-center rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 transition-colors"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        Log out
+                                    </Link>
+                                </>
+                            ) : (
+                                <>
+                                    <Link
+                                        href="/login"
+                                        className="block w-full text-center rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 transition-colors"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        Log in
+                                    </Link>
+                                    <Link
+                                        href="/register"
+                                        className="block w-full text-center rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700 transition-colors"
+                                        onClick={() => setMobileMenuOpen(false)}
+                                    >
+                                        Sign up
+                                    </Link>
+                                </>
+                            )}
+                        </div>
                     </div>
                 </div>
             )}

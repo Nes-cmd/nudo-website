@@ -29,5 +29,6 @@ class Business extends Model
     protected $casts = [
         'services' => 'array',
         'available' => 'boolean',
+        'image' => 'array',
     ];
 }

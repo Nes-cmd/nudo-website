@@ -7,13 +7,13 @@ export default function Businesses({ businesses = [] }) {
             <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
                 {/* Header */}
                 <div className="text-center mb-12">
-                    <span className="inline-flex items-center rounded-full bg-primary-50 px-3 py-1 text-xs font-medium text-primary-700 uppercase tracking-wide">
+                    <span className="inline-flex items-center rounded-full bg-primary-50 dark:bg-primary-500/15 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300 uppercase tracking-wide">
                         Featured Businesses
                     </span>
-                    <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900">
-                        Well-known businesses in our <span className="text-primary-600">commercial center</span>
+                    <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white">
+                        Well-known businesses in our <span className="text-primary-600 dark:text-primary-300">commercial center</span>
                     </h1>
-                    <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-gray-600">
+                    <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-gray-600 dark:text-gray-300">
                         Discover trusted partners helping you ship products faster, design better experiences, and grow your
                         brand.
                     </p>
@@ -24,7 +24,7 @@ export default function Businesses({ businesses = [] }) {
                     {businesses.map((business) => (
                         <article
                             key={business.id}
-                            className="group relative overflow-hidden rounded-2xl bg-white/80 backdrop-blur shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100/70"
+                            className="group relative overflow-hidden rounded-2xl bg-white/80 dark:bg-slate-800 backdrop-blur shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-100/70 dark:border-slate-700"
                         >
                             {/* Image */}
                             <div className="relative h-40 sm:h-44 overflow-hidden">
@@ -44,10 +44,10 @@ export default function Businesses({ businesses = [] }) {
                             {/* Content */}
                             <div className="p-6 flex flex-col gap-4">
                                 <header>
-                                    <h2 className="text-lg sm:text-xl font-semibold text-gray-900 group-hover:text-primary-600 transition-colors">
+                                    <h2 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-300 transition-colors">
                                         {business.name}
                                     </h2>
-                                    <p className="mt-2 text-sm text-gray-600 leading-relaxed">
+                                    <p className="mt-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                                         {business.description}
                                     </p>
                                 </header>
@@ -57,7 +57,7 @@ export default function Businesses({ businesses = [] }) {
                                     {business.services.map((service) => (
                                         <span
                                             key={service}
-                                            className="inline-flex items-center rounded-full bg-primary-50 px-2.5 py-1 text-xs font-medium text-primary-700"
+                                            className="inline-flex items-center rounded-full bg-primary-50 dark:bg-primary-500/15 px-2.5 py-1 text-xs font-medium text-primary-700 dark:text-primary-300"
                                         >
                                             {service}
                                         </span>
@@ -71,7 +71,7 @@ export default function Businesses({ businesses = [] }) {
                                             href={business.website}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="inline-flex items-center rounded-full bg-gray-900 text-white px-4 py-2 text-xs font-medium shadow hover:bg-gray-800 transition-colors"
+                                            className="inline-flex items-center rounded-full bg-gray-900 text-white px-4 py-2 text-xs font-medium shadow hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200 transition-colors"
                                         >
                                             Visit Website
                                             <svg
@@ -100,7 +100,7 @@ export default function Businesses({ businesses = [] }) {
                                         <div></div>
                                     )}
 
-                                    <span className="text-[11px] uppercase tracking-wide text-gray-400">
+                                    <span className="text-[11px] uppercase tracking-wide text-gray-400 dark:text-gray-500">
                                         Available now
                                     </span>
                                 </div>
@@ -112,7 +112,7 @@ export default function Businesses({ businesses = [] }) {
                 {/* Empty state */}
                 {businesses.length === 0 && (
                     <div className="text-center py-12">
-                        <p className="text-gray-500">No businesses available at the moment.</p>
+                        <p className="text-gray-500 dark:text-gray-400">No businesses available at the moment.</p>
                     </div>
                 )}
             </div>

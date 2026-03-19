@@ -146,16 +146,16 @@ export default function Home({ rooms = [], businesses = [] }) {
             </section>
 
             {/* Available Rooms for Rent Section */}
-            <section className="bg-linear-to-br from-primary-50 via-white to-sky-50 py-16 sm:py-20">
+            <section className="bg-linear-to-br from-primary-50 via-white to-sky-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900 py-16 sm:py-20">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
-                        <span className="inline-flex items-center rounded-full bg-primary-100 px-4 py-2 text-xs font-medium text-primary-700 uppercase tracking-wide mb-4">
+                        <span className="inline-flex items-center rounded-full bg-primary-100 dark:bg-primary-500/15 px-4 py-2 text-xs font-medium text-primary-700 dark:text-primary-300 uppercase tracking-wide mb-4">
                             Available Now
                         </span>
-                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                            Rooms <span className="text-primary-600">Available for Rent</span>
+                        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                            Rooms <span className="text-primary-600 dark:text-primary-300">Available for Rent</span>
                         </h2>
-                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                        <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                             Premium meeting spaces and conference rooms available for monthly rental. Perfect for your business needs.
                         </p>
                     </div>
@@ -164,7 +164,7 @@ export default function Home({ rooms = [], businesses = [] }) {
                         {openRooms.map((room) => (
                             <div
                                 key={room.id}
-                                className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary-300"
+                                className="group relative bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-slate-700 hover:border-primary-300"
                             >
                                 {/* Room Image */}
                                 <div className="relative h-48 overflow-hidden">
@@ -194,18 +194,18 @@ export default function Home({ rooms = [], businesses = [] }) {
                                 <div className="p-6">
                                     {/* Room name */}
                                     <Link href={`/open-rooms/${room.id}`}>
-                                        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors cursor-pointer">
+                                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-300 transition-colors cursor-pointer">
                                             {room.name}
                                         </h3>
                                     </Link>
 
                                     {/* Description */}
-                                    <p className="text-sm text-gray-600 mb-4">
+                                    <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
                                         {room.description}
                                     </p>
 
                                     {/* Size and capacity */}
-                                    <div className="flex items-center gap-4 mb-4 text-xs text-gray-500">
+                                    <div className="flex items-center gap-4 mb-4 text-xs text-gray-500 dark:text-gray-400">
                                         <span className="flex items-center gap-1">
                                             <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
@@ -225,7 +225,7 @@ export default function Home({ rooms = [], businesses = [] }) {
                                         {room.features.map((feature) => (
                                             <span
                                                 key={feature}
-                                                className="inline-flex items-center rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-700"
+                                                className="inline-flex items-center rounded-md bg-gray-100 dark:bg-slate-700 px-2 py-1 text-xs font-medium text-gray-700 dark:text-gray-200"
                                             >
                                                 {feature}
                                             </span>
@@ -233,23 +233,23 @@ export default function Home({ rooms = [], businesses = [] }) {
                                     </div>
 
                                     {/* Price and booking */}
-                                    <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                                    <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-slate-700">
                                         <div>
                                             <div className="flex items-baseline gap-1">
-                                                <span className="text-2xl font-bold text-gray-900">
+                                                <span className="text-2xl font-bold text-gray-900 dark:text-white">
                                                     {room.price}
                                                 </span>
-                                                <span className="text-xs text-gray-500">
+                                                <span className="text-xs text-gray-500 dark:text-gray-400">
                                                     ETB
                                                 </span>
                                             </div>
-                                            <span className="text-xs text-gray-500">
+                                            <span className="text-xs text-gray-500 dark:text-gray-400">
                                                 {room.period}
                                             </span>
                                         </div>
                                         <Link
                                             href={`/open-rooms/${room.id}`}
-                                            className="inline-flex items-center rounded-lg bg-primary-600 px-4 py-2 text-xs font-medium text-white hover:bg-primary-700 transition-colors"
+                                            className="inline-flex items-center rounded-lg bg-primary-600 px-4 py-2 text-xs font-medium text-white hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-400 transition-colors"
                                         >
                                             Book Now
                                             <svg className="ml-1.5 h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -266,7 +266,7 @@ export default function Home({ rooms = [], businesses = [] }) {
                     <div className="text-center mt-10">
                         <Link
                             href="/open-rooms"
-                            className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors"
+                            className="inline-flex items-center text-primary-600 dark:text-primary-300 font-semibold hover:text-primary-700 dark:hover:text-primary-200 transition-colors"
                         >
                             View all available rooms
                             <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -284,10 +284,10 @@ export default function Home({ rooms = [], businesses = [] }) {
                     <div className="mt-16 space-y-6">
                         <div className="flex items-center justify-between gap-4 mb-3">
                             <div>
-                                <h2 className="text-xl sm:text-2xl font-semibold text-gray-900">
+                                <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white">
                                     Businesses in Nudo Commercial Center
                                 </h2>
-                                <p className="mt-1 text-sm text-gray-600">
+                                <p className="mt-1 text-sm text-gray-600 dark:text-gray-300">
                                     Discover the diverse range of businesses thriving in our commercial center.
                                 </p>
                             </div>
@@ -296,8 +296,8 @@ export default function Home({ rooms = [], businesses = [] }) {
                         {/* Horizontal scrollable businesses gallery */}
                         <div className="relative">
                         {/* Gradient edges */}
-                        <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-linear-to-r from-gray-50 via-gray-50/0 z-10" />
-                        <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-linear-to-l from-gray-50 via-gray-50/0 z-10" />
+                        <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-linear-to-r from-gray-50 via-gray-50/0 dark:from-gray-900 dark:via-transparent z-10" />
+                        <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-linear-to-l from-gray-50 via-gray-50/0 dark:from-gray-900 dark:via-transparent z-10" />
 
                         <div
                             ref={scrollRef}
@@ -307,7 +307,7 @@ export default function Home({ rooms = [], businesses = [] }) {
                             {businesses.map((business) => (
                                 <article
                                     key={business.id}
-                                    className="group relative flex-none w-[85vw] sm:w-[70vw] lg:w-[50vw] overflow-hidden rounded-3xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100/70 snap-start"
+                                    className="group relative flex-none w-[85vw] sm:w-[70vw] lg:w-[50vw] overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100/70 dark:border-slate-700 snap-start"
                                 >
                                     {/* Image */}
                                     <div className="relative h-64 sm:h-80 md:h-88 overflow-hidden">
@@ -337,18 +337,18 @@ export default function Home({ rooms = [], businesses = [] }) {
                                     </div>
 
                                     {/* Services preview */}
-                                    <div className="p-4 bg-white">
+                                    <div className="p-4 bg-white dark:bg-slate-900">
                                         <div className="flex flex-wrap gap-2">
                                             {business.services.slice(0, 3).map((service) => (
                                                 <span
                                                     key={service}
-                                                    className="inline-flex items-center rounded-full bg-primary-50 px-2.5 py-1 text-xs font-medium text-primary-700"
+                                                    className="inline-flex items-center rounded-full bg-primary-50 dark:bg-primary-500/15 px-2.5 py-1 text-xs font-medium text-primary-700 dark:text-primary-300"
                                                 >
                                                     {service}
                                                 </span>
                                             ))}
                                             {business.services.length > 3 && (
-                                                <span className="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-1 text-xs font-medium text-gray-600">
+                                                <span className="inline-flex items-center rounded-full bg-gray-100 dark:bg-slate-800 px-2.5 py-1 text-xs font-medium text-gray-600 dark:text-gray-300">
                                                     +{business.services.length - 3} more
                                                 </span>
                                             )}
