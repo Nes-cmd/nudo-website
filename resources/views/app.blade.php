@@ -6,9 +6,23 @@
 
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
+        <script>
+            (function () {
+                try {
+                    var saved = localStorage.getItem('darkMode');
+                    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    var isDark = saved === null ? prefersDark : saved === 'true';
+                    document.documentElement.classList.toggle('dark', isDark);
+                } catch (e) {
+                    // Ignore storage access issues and keep default theme.
+                }
+            })();
+        </script>
+
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet"/>
+        <link rel="icon" href="/logo/Nudo-favicon-removebg-preview.png" type="image/x-icon">
 
         <!-- Scripts -->
         @routes

@@ -1,3 +1,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Midnight starfield (MainLayout, dark mode) */
+@keyframes star-run-rise {
+    0% {
+        transform: translate3d(0, 0, 0);
+        opacity: 0;
+    }
+    6% {
+        opacity: var(--star-op, 0.85);
+    }
+    94% {
+        opacity: var(--star-op, 0.85);
+    }
+    100% {
+        transform: translate3d(var(--star-dx, 0px), -108vh, 0);
+        opacity: 0;
+    }
+}
+
+.star-run {
+    animation-name: star-run-rise;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .midnight-starfield {
+        display: none !important;
+    }
+}

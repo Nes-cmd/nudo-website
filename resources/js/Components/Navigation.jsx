@@ -1,6 +1,7 @@
 import { Link, usePage } from '@inertiajs/react';
 import { useState } from 'react';
 import DarkModeToggle from './DarkModeToggle';
+import ApplicationLogo from './ApplicationLogo';
 
 export default function Navigation() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -27,9 +28,9 @@ export default function Navigation() {
                 <div className="flex justify-between h-20">
                     <div className="flex items-center">
                         <div className="shrink-0 flex items-center">
-                            <Link href="/" className="inline-flex items-center rounded-2xl bg-primary-600 px-3.5 py-2 text-lg sm:text-xl font-extrabold tracking-tight text-white shadow-sm ring-1 ring-primary-400/70 hover:bg-primary-500 hover:ring-primary-300 transition-all">
-                                Nudo
-                            </Link>
+                        <Link href="/">
+                            <ApplicationLogo />
+                        </Link>
                         </div>
                         <div className="hidden sm:ml-10 sm:flex sm:space-x-1">
                             {navigation.map((item) => {

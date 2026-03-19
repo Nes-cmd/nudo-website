@@ -36,7 +36,7 @@ export default function DarkModeToggle() {
     return (
         <button
             onClick={toggleDarkMode}
-            className="p-2 rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-colors"
+            className="rounded-lg p-2 text-gray-500 transition-colors hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:text-gray-300 dark:hover:bg-slate-800"
             aria-label="Toggle dark mode"
         >
             {darkMode ? (

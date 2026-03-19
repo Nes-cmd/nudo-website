@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use App\Models\Room;
 use App\Models\Business;
 use App\Models\HeroImage;
+use App\Http\Controllers\RoomController;
 
 class HomeController extends Controller
 {
@@ -17,9 +17,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $rooms = Room::where('available', true)
-            ->limit(6)
-            ->get();
+        // Fetch rooms from external management API via RoomController helper
+        $roomController = app(RoomController::class);
+        $allRooms = $roomController->fetchAvailableUnits();
+        $rooms = array_slice($allRooms, 0, 6);
 
         $businesses = Business::where('available', true)
             ->limit(5)
