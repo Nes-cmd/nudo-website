@@ -6,6 +6,39 @@
 
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
+        @php
+            $seoSite = config('seo.site_name');
+            $descEn = config('seo.description_en');
+            $descAm = config('seo.description_am');
+            $keywordsEn = config('seo.keywords_en');
+            $keywordsAm = config('seo.keywords_am');
+            $descCombined = collect([$descEn, $descAm])->filter()->implode(' ');
+            $keywordsCombined = collect([$keywordsEn, $keywordsAm])->filter()->implode(', ');
+            $appUrl = rtrim(config('app.url'), '/');
+            $ogImagePath = ltrim(config('seo.og_image'), '/');
+            $ogImageUrl = $appUrl !== '' ? $appUrl.'/'.$ogImagePath : '/'.$ogImagePath;
+        @endphp
+
+        <meta name="description" content="{{ $descCombined }}">
+        <meta name="keywords" content="{{ $keywordsCombined }}">
+        <meta name="author" content="{{ $seoSite }}">
+        <meta name="robots" content="index, follow">
+        <link rel="canonical" href="{{ $appUrl }}{{ request()->getRequestUri() }}">
+
+        <meta property="og:site_name" content="{{ $seoSite }}">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ $appUrl }}{{ request()->getRequestUri() }}">
+        <meta property="og:title" content="{{ $seoSite }}">
+        <meta property="og:description" content="{{ $descCombined }}">
+        <meta property="og:locale" content="en_US">
+        <meta property="og:locale:alternate" content="am_ET">
+        <meta property="og:image" content="{{ $ogImageUrl }}">
+
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $seoSite }}">
+        <meta name="twitter:description" content="{{ $descCombined }}">
+        <meta name="twitter:image" content="{{ $ogImageUrl }}">
+
         <script>
             (function () {
                 try {
