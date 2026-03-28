@@ -1,34 +1,10 @@
-# Minimal .htaccess for testing 403 issues
-# Use this to temporarily replace your main .htaccess
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
 
-# Enable Rewrite Engine
-RewriteEngine On
+    # If already in /public, skip
+    RewriteCond %{REQUEST_URI} !^/public/
 
-# Basic Laravel routing (essential)
-# Redirect www to non-www
-RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
-
-# Redirect HTTP to HTTPS
-RewriteCond %{HTTPS} off
-RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-
-# Set default index file
-RewriteRule ^(.*)$ public/$1 [L]
-
-# Rewrite rule for root URL to index.php
-RewriteRule ^$ public/index.php [L]
-
-# General rule to forward all requests to index.php
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . public/index.php [L]
-
-# Basic security headers
-<IfModule mod_headers.c>
-    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-    Header set X-XSS-Protection "1; mode=block"
-    Header set X-Content-Type-Options "nosniff"
-    Header set X-Frame-Options "DENY"
-    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    # Redirect EVERYTHING to public/
+    RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>

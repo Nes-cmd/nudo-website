@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Http;
 
@@ -283,94 +284,100 @@ class RoomController extends Controller
         "total": 5
         }
         */
-        $baseUrl = rtrim(config('services.management.url', env('MANAGEMENT_URL', '')), '/');
-        $companyId = config('services.management.company_id', env('COMPANY_ID'));
-        $apiKey = config('services.management.api_key', env('API_KEY'));
 
-        if (! $baseUrl || ! $companyId || ! $apiKey) {
-            return [];
-        }
+        return Cache::remember('room-data', now()->addHour(), function() use($page){
+            $baseUrl = rtrim(config('services.management.url', env('MANAGEMENT_URL', '')), '/');
+            $companyId = config('services.management.company_id', env('COMPANY_ID'));
+            $apiKey = config('services.management.api_key', env('API_KEY'));
 
-        $url = "{$baseUrl}/api/partner/v1/companies/{$companyId}/available-units?page={$page}";
+            if (! $baseUrl || ! $companyId || ! $apiKey) {
+                return [];
+            }
+           
+            $url = "{$baseUrl}/api/partner/v1/companies/{$companyId}/available-units?page={$page}";
 
-        $response = Http::withHeaders([
-            'X-API-KEY' => $apiKey,
-            'Accept' => 'application/json',
-        ])->get($url);
+            $response = Http::withHeaders([
+                'X-API-KEY' => $apiKey,
+                'Accept' => 'application/json',
+            ])->get($url);
 
-        if (! $response->ok()) {
-            return [
-                'items' => [],
-                'meta' => [],
-                'links' => [],
+            if (! $response->ok()) {
+                // dd($response->status());
+                return [
+                    'items' => [],
+                    'meta' => [],
+                    'links' => [],
+                ];
+            }
+
+            $data = $response->json();
+
+            
+
+            // API is paginated; rooms live under "data"
+            $rawItems = is_array($data['data'] ?? null) ? $data['data'] : (is_array($data) ? $data : []);
+
+            $items = array_map(function (array $unit) use ($baseUrl) {
+                $rooms = is_array($unit['rooms'] ?? null) ? $unit['rooms'] : [];
+
+                $features = array_values(array_filter(array_map(function ($room) {
+                    return $room['title'] ?? null;
+                }, $rooms)));
+
+                $descriptionParts = [];
+                if (! empty($unit['floor_name'])) {
+                    $descriptionParts[] = $unit['floor_name'];
+                }
+                if (! empty($unit['area_sqm'])) {
+                    $descriptionParts[] = $unit['area_sqm'] . ' m²';
+                }
+
+                // Prefer unit images; if none, fall back to property / category images
+                $unitImages = is_array($unit['images'] ?? null) ? $unit['images'] : [];
+                $propertyImages = is_array($unit['property']['images'] ?? null)
+                    ? $unit['property']['images']
+                    : (is_array($unit['property']['category']['images'] ?? null)
+                        ? $unit['property']['category']['images']
+                        : []);
+
+                $rawImage = $unitImages[0] ?? ($propertyImages[0] ?? null);
+
+                $image = null;
+                if ($rawImage) {
+                    $image = rtrim($baseUrl, '/') . '/storage/' . ltrim($rawImage, '/storage/');
+                }
+
+                return [
+                    'id' => $unit['id'] ?? null,
+                    'name' => $unit['title'] ?? 'Unit',
+                    'description' => implode(' • ', $descriptionParts),
+                    'image' => $image,
+                    'floor' => $unit['floor_name'] ?? ($unit['floor'] ?? ''),
+                    'size' => $unit['area_sqm'] ?? null,
+                    'capacity' => null,
+                    'features' => $features,
+                    'price' => $unit['total_amount'] ?? ($unit['price'] ?? null),
+                    'period' => 'በየወር',
+                ];
+            }, $rawItems);
+
+            $meta = [
+                'current_page' => $data['current_page'] ?? 1,
+                'last_page' => $data['last_page'] ?? 1,
+                'from' => $data['from'] ?? null,
+                'to' => $data['to'] ?? null,
+                'total' => $data['total'] ?? null,
+                'per_page' => $data['per_page'] ?? null,
             ];
-        }
 
-        $data = $response->json();
-
-        // API is paginated; rooms live under "data"
-        $rawItems = is_array($data['data'] ?? null) ? $data['data'] : (is_array($data) ? $data : []);
-
-        $items = array_map(function (array $unit) use ($baseUrl) {
-            $rooms = is_array($unit['rooms'] ?? null) ? $unit['rooms'] : [];
-
-            $features = array_values(array_filter(array_map(function ($room) {
-                return $room['title'] ?? null;
-            }, $rooms)));
-
-            $descriptionParts = [];
-            if (! empty($unit['floor_name'])) {
-                $descriptionParts[] = $unit['floor_name'];
-            }
-            if (! empty($unit['area_sqm'])) {
-                $descriptionParts[] = $unit['area_sqm'] . ' m²';
-            }
-
-            // Prefer unit images; if none, fall back to property / category images
-            $unitImages = is_array($unit['images'] ?? null) ? $unit['images'] : [];
-            $propertyImages = is_array($unit['property']['images'] ?? null)
-                ? $unit['property']['images']
-                : (is_array($unit['property']['category']['images'] ?? null)
-                    ? $unit['property']['category']['images']
-                    : []);
-
-            $rawImage = $unitImages[0] ?? ($propertyImages[0] ?? null);
-
-            $image = null;
-            if ($rawImage) {
-                $image = rtrim($baseUrl, '/') . '/storage/' . ltrim($rawImage, '/storage/');
-            }
+            $links = is_array($data['links'] ?? null) ? $data['links'] : [];
 
             return [
-                'id' => $unit['id'] ?? null,
-                'name' => $unit['title'] ?? 'Unit',
-                'description' => implode(' • ', $descriptionParts),
-                'image' => $image,
-                'floor' => $unit['floor_name'] ?? ($unit['floor'] ?? ''),
-                'size' => $unit['area_sqm'] ?? null,
-                'capacity' => null,
-                'features' => $features,
-                'price' => $unit['total_amount'] ?? ($unit['price'] ?? null),
-                'period' => 'Per month',
+                'items' => $items,
+                'meta' => $meta,
+                'links' => $links,
             ];
-        }, $rawItems);
-
-        $meta = [
-            'current_page' => $data['current_page'] ?? 1,
-            'last_page' => $data['last_page'] ?? 1,
-            'from' => $data['from'] ?? null,
-            'to' => $data['to'] ?? null,
-            'total' => $data['total'] ?? null,
-            'per_page' => $data['per_page'] ?? null,
-        ];
-
-        $links = is_array($data['links'] ?? null) ? $data['links'] : [];
-
-        return [
-            'items' => $items,
-            'meta' => $meta,
-            'links' => $links,
-        ];
+         });
     }
 
     /**

@@ -15,11 +15,10 @@ export default function Businesses({ businesses = [] }) {
                         Featured Businesses
                     </span>
                     <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white">
-                        Well-known businesses in our <span className="text-primary-600 dark:text-primary-300">commercial center</span>
+                        ታዋቂ የንግድ ተቋማት እና ኤጀንሲዎች <span className="text-primary-600 dark:text-primary-300"> በገበያ ማዕከላችን ውስጥ</span>
                     </h1>
                     <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-gray-600 dark:text-gray-300">
-                        Discover trusted partners helping you ship products faster, design better experiences, and grow your
-                        brand.
+                        የታመኑ አስመጪዎች፣ ምርት አቅራቢዎችን፣ በውጭ ሀገር ስራ አገናኝ ኤጀንሲዎችን እና የህግ፣ የቴክኖሎጂ፣ የሂሳብ ስራ አገልግሎቶችን ያግኙ።
                     </p>
                 </div>
 

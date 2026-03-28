@@ -1,4 +1,5 @@
 import { Link } from '@inertiajs/react';
+import ApplicationLogo from './ApplicationLogo';
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -33,11 +34,11 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     {/* Brand */}
                     <div className="col-span-1 md:col-span-1">
-                        <Link href="/" className="text-2xl font-bold text-gray-900 dark:text-white">
-                            Nudo
+                        <Link href="/">
+                            <ApplicationLogo />
                         </Link>
-                        <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
-                            Building modern, reactive applications with cutting-edge technology.
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                            ዘማናዊ እጅግ ማራኪ የንግድ ማዕከል፣ በፒያሳ ተ/ሃይማኖት አካባቢ፣ አዲስ አበባ ኢትዮጵያ
                         </p>
                     </div>
 

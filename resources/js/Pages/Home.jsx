@@ -103,14 +103,13 @@ export default function Home({ rooms = [], businesses = [], heroes = [] }) {
                             Premium Commercial Building
                         </span>
                         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
-                            Welcome to{' '}
-                            <span className="bg-clip-text text-transparent bg-linear-to-r from-primary-300 via-primary-100 to-primary-400">
-                                Nudo
+                            እንኳን ደህና መጡ! {' '}
+                            <span className="text-primary-500">
+                                ኑዶ የገበያ ማዕከል
                             </span>
                         </h1>
                         <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8 leading-relaxed">
-                            A premier commercial building where businesses thrive, services excel, and innovation meets opportunity.
-                            Discover premium office spaces, professional services, and collaborative environments.
+                            ንግድዎ የሚመነደግበት፣ ፈጠራ ከዕድል ጋር የሚገናኝበት ቀዳሚ የንግድ ሕንፃ። ደረጃቸውን የጠበቁ ቢሮዎችን እና ምቹ የሥራ ቦታዎችን የሚያገኙበት ህንፃ።
                         </p>
 
                         <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
@@ -118,7 +117,7 @@ export default function Home({ rooms = [], businesses = [], heroes = [] }) {
                                 href="/businesses"
                                 className="inline-flex items-center rounded-full bg-white text-gray-900 px-6 py-3 text-base font-semibold shadow-xl hover:bg-gray-100 transition-all hover:scale-105"
                             >
-                                Explore Businesses
+                                ቢስነሶችን ለማግኘት
                                 <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                 </svg>
@@ -127,22 +126,22 @@ export default function Home({ rooms = [], businesses = [], heroes = [] }) {
                                 href="/open-rooms"
                                 className="inline-flex items-center rounded-full border-2 border-primary-400/60 bg-primary-500/20 backdrop-blur-sm px-6 py-3 text-base font-medium text-white hover:bg-primary-500/30 hover:border-primary-300/80 transition-all hover:scale-105"
                             >
-                                View Open Rooms
+                                የሚከራዩ ክፍሎች
                             </Link>
                         </div>
 
                         {/* Stats */}
                         <dl className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
                             <div className="space-y-2">
-                                <dt className="text-white/80 text-sm uppercase tracking-wide">Businesses</dt>
+                                <dt className="text-white/80 text-sm uppercase tracking-wide">የንግድ ተቋማት</dt>
                                 <dd className="text-3xl sm:text-4xl font-bold">250+</dd>
                             </div>
                             <div className="space-y-2">
-                                <dt className="text-white/80 text-sm uppercase tracking-wide">Services</dt>
+                                <dt className="text-white/80 text-sm uppercase tracking-wide">አገልግሎቶች</dt>
                                 <dd className="text-3xl sm:text-4xl font-bold">300+</dd>
                             </div>
                             <div className="space-y-2">
-                                <dt className="text-white/80 text-sm uppercase tracking-wide">Foreign Agencies</dt>
+                                <dt className="text-white/80 text-sm uppercase tracking-wide">ኤጀንሲዎች</dt>
                                 <dd className="text-3xl sm:text-4xl font-bold">50+</dd>
                             </div>
                         </dl>
@@ -165,15 +164,15 @@ export default function Home({ rooms = [], businesses = [], heroes = [] }) {
                     <div className="mt-16 space-y-6">
                         <div className="flex flex-col items-center justify-center text-center gap-3 mb-6">
                             <span className="inline-flex items-center rounded-full bg-primary-50 dark:bg-primary-500/10 px-4 py-1.5 text-xs font-semibold tracking-wide uppercase text-primary-700 dark:text-primary-300 border border-primary-100 dark:border-primary-600/60 shadow-sm">
-                                Inside Nudo Market Center
+                                በኑዶ የገበያ ማዕከል ውስጥ
                             </span>
                             <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-900 dark:text-white drop-shadow-md">
                                 <span className="bg-clip-text  bg-linear-to-r from-primary-500 via-amber-300 to-primary-400">
-                                    Businesses in Nudo Market Center
+                                    ኑዶ ውስጥ በቀላሉ የሚያገኝዋቸው የንግድ ተቋማት እና አገልግሎቶች!
                                 </span>
                             </h2>
                             <p className="mt-1 text-base text-gray-600 dark:text-gray-300 max-w-xl">
-                                Discover the diverse range of businesses and services operating inside Nudo Market Center.
+                                መሸመት የሚፈልጉት ምርት ወይም ማግኘት የሚፈልጉዋቸውን አገልግሎቶችን ይመልከቱ፣ ኑዶ መጥተው ምን አጥተው!
                             </p>
                         </div>
 
@@ -249,7 +248,7 @@ export default function Home({ rooms = [], businesses = [], heroes = [] }) {
                                                             />
                                                             {images.length > 3 && (
                                                                 <div className="absolute inset-0 rounded-xl bg-black/50 flex items-center justify-center text-xs font-semibold text-white">
-                                                                    +{images.length - 3} more
+                                                                    +{images.length - 3} ሌሎችም
                                                                 </div>
                                                             )}
                                                         </div>
@@ -289,7 +288,7 @@ export default function Home({ rooms = [], businesses = [], heroes = [] }) {
                                                     ))}
                                                     {business.services.length > 3 && (
                                                         <span className="inline-flex items-center rounded-full bg-gray-100 dark:bg-slate-800 px-2.5 py-1 text-xs font-medium text-gray-600 dark:text-gray-300">
-                                                            +{business.services.length - 3} more
+                                                            +{business.services.length - 3} ሌሎችም
                                                         </span>
                                                     )}
                                                 </div>
@@ -323,7 +322,7 @@ export default function Home({ rooms = [], businesses = [], heroes = [] }) {
                                 href="/businesses"
                                 className="inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 transition-colors"
                             >
-                                View all businesses
+                                ሁሉንም ለመመልከት
                                 <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                 </svg>
@@ -338,13 +337,13 @@ export default function Home({ rooms = [], businesses = [], heroes = [] }) {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
                         <span className="inline-flex items-center rounded-full bg-primary-100 dark:bg-primary-500/15 px-4 py-2 text-xs font-medium text-primary-700 dark:text-primary-300 uppercase tracking-wide mb-4">
-                            Available Now
+                            አሁን ክፍት የሆኑ
                         </span>
                         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-                            Rooms <span className="text-primary-600 dark:text-primary-300">Available for Rent</span>
+                            ለኪራይ ክፍት የሆኑ<span className="text-primary-600 dark:text-primary-300"> ክፍሎች</span>
                         </h2>
                         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                            Premium meeting spaces and conference rooms available for monthly rental. Perfect for your business needs.
+                            ለንግድ፣ ለኤጀንሲ ወይም ልቢሮ የሚሆኑ ሰፋ ያሉ ወይም በአቅምዎ ልክ የሆኑ ሱቆች እኛ ጋር ያገኛሉ።
                         </p>
                     </div>
 
@@ -372,7 +371,7 @@ export default function Home({ rooms = [], businesses = [], heroes = [] }) {
                                         {/* Available badge */}
                                         <div className="absolute top-4 right-4">
                                             <span className="inline-flex items-center rounded-full bg-emerald-500 px-3 py-1 text-xs font-medium text-white shadow-lg">
-                                                Available
+                                                የሚከራይ
                                             </span>
                                         </div>
 
@@ -434,7 +433,7 @@ export default function Home({ rooms = [], businesses = [], heroes = [] }) {
                                                         {formatPrice(room.price)}
                                                     </span>
                                                     <span className="text-xs text-gray-500 dark:text-gray-400">
-                                                        ETB
+                                                        ብር
                                                     </span>
                                                 </div>
                                                 <span className="text-xs text-gray-500 dark:text-gray-400">
@@ -445,7 +444,7 @@ export default function Home({ rooms = [], businesses = [], heroes = [] }) {
                                                 href={`/open-rooms/${room.id}`}
                                                 className="inline-flex items-center rounded-lg bg-primary-600 px-4 py-2 text-xs font-medium text-white hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-400 transition-colors"
                                             >
-                                                View Details
+                                                ዝርዝሩን ለማየት
                                                 <svg className="ml-1.5 h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                                 </svg>
@@ -463,7 +462,7 @@ export default function Home({ rooms = [], businesses = [], heroes = [] }) {
                             href="/open-rooms"
                             className="inline-flex items-center text-primary-600 dark:text-primary-300 font-semibold hover:text-primary-700 dark:hover:text-primary-200 transition-colors"
                         >
-                            View all available rooms
+                            ሁሉንም ለማየት 
                             <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>

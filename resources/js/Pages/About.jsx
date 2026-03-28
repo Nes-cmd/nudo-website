@@ -80,10 +80,10 @@ export default function About() {
     ];
 
     const stats = [
-        { label: 'Years in Operation', value: '15+' },
-        { label: 'Active Businesses', value: '210+' },
-        { label: 'Different Services', value: '300+' },
-        { label: 'Daily Visitors', value: '3000+' },
+        { label: 'ዓመት በስራ ላይላይ', value: '15+' },
+        { label: 'የንግድ ተቋማትተቋማት', value: '210+' },
+        { label: 'የተለያዩ አገልግሎቶች', value: '300+' },
+        { label: 'በየቀን የሚገለገሉ ደንበኞች', value: '3000+' },
     ];
 
     return (
@@ -94,18 +94,16 @@ export default function About() {
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="max-w-3xl">
                         <span className="inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-sm font-medium mb-6 backdrop-blur-sm">
-                            Around Piassa • T/Haymanot
+                            በፒያሳ ተ/ሃይማኖት አካባቢ
                         </span>
                         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
-                            A Visionary Market Center In
+                            የተሟላ የንግድ ህንፃ
                             <p className="bg-clip-text text-transparent bg-linear-to-r from-amber-200 to-yellow-200 dark:text-primary-300">
-                                Addis Ababa
+                                በ አዲስ አበባ ኢትዮጵያ
                             </p>
                         </h1>
                         <p className="text-xl sm:text-2xl text-white/90 leading-relaxed">
-                            Nudo Market Center is a landmark commercial building around Piassa T/Haymanot, built by visionary
-                            members more than 15 years ago. It brings together shops, offices and services in one vibrant,
-                            well‑organized destination.
+                            ኑዶ ማርኬት ሴንተር በፒያሳ ተክለሃይማኖት አካባቢ የሚገኝ ታዋቂ የንግድ ማዕከል ሲሆን፣ ከ15 ዓመታት በፊት አርቆ አሳቢ በሆኑ ግለሰቦች የተገነባ ባለ 11 ወለል የንግድ ማዕከል ነው። ሕንፃው ሱቆችን፣ ቢሮዎችን እና ልዩ ልዩ አገልግሎቶችን በአንድ ወጥ፣ ምቹ እና ሥርዓት ባለው ሁኔታ አቀናጅቶ የያዘ ቀዳሚ የንግድ መዳረሻ ነው።
                         </p>
                     </div>
                 </div>
@@ -135,29 +133,20 @@ export default function About() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div>
                             <span className="inline-flex items-center rounded-full bg-primary-100 dark:bg-primary-500/15 px-4 py-2 text-xs font-medium text-primary-700 dark:text-primary-300 uppercase tracking-wide mb-4">
-                                Our Story
+                                ታሪካችን
                             </span>
                             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-                                The Story of Nudo Market Center
+                                የኑዶ የገበያ ማዕከል ታሪክ
                             </h2>
                             <div className="space-y-4 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                                 <p>
-                                    Nudo Market Center was conceived by a group of forward‑thinking members who wanted to create
-                                    a modern, well‑managed commercial building in the heart of Addis Ababa. Around Piassa
-                                    T/Haymanot, they saw the potential for a place where business, community and convenience
-                                    could come together in a single address.
+                                    ኑዶ ማርኬት ሴንተር በፒያሳ ተክለሃይማኖት አካባቢ የሚገኝ ታዋቂ የንግድ ማዕከል ሲሆን፣ ከ15 ዓመታት በፊት አርቆ አሳቢ በሆኑ ግለሰቦች የተገነባ ህንጻህንጻ ነው። ሕንፃው ሱቆችን፣ ቢሮዎችን እና ልዩ ልዩ አገልግሎቶችን በአንድ ወጥ፣ ምቹ እና ሥርዓት ባለው ሁኔታ አቀናጅቶ የያዘ ቀዳሚ የንግድ መዳረሻ ነው።
                                 </p>
                                 <p>
-                                    The building opened its doors more than 15 years ago and has since grown into a trusted
-                                    destination for both tenants and visitors. From small family businesses to established
-                                    brands, many have chosen Nudo as their base because of its location, accessibility and
-                                    professional environment.
+                                    ከ15 ዓመታት በላይ በታማኝነት ያገለገለው ሕንፃችን፤ ለንግድ ተቋማትና ለገበያተኞች ተመራጭ ቦታ ሆኗል። ብዙዎች ኑዶን የመረጡት ባለው ምቹ ቦታ፣ ተደራሽነት እና ለሥራ ተስማሚ በሆነው መዋቅሩ ነው።
                                 </p>
                                 <p>
-                                    Today, Nudo Market Center continues to evolve while staying true to that original vision:
-                                    a clean, secure and welcoming commercial space where people can work, shop, meet and grow
-                                    together. The building is more than concrete and glass – it is a long‑term commitment from
-                                    its members to serve the surrounding community.
+                                    ዛሬም ቢሆን ኑዶ ማርኬት ሴንተር የጥንት ራዕዩን ሳይዘነጋ ራሱን እያዘመነ ይገኛል፤ ይህም ሰዎች በጋራ የሚሰሩበት፣ ደንበኞችዎ በቀላሉ እርስዎ ጋር የሚደርሱበት፣ የሚገበያዩበት እና አገልግሎቶችን በቀላሉ የሚያገኙበት፣ ንጹህ፣ ደህንነቱ የተጠበቀ እና እንግዳ ተቀባይ የንግድ ስፍራ መሆን ነው። ይህ ሕንፃ ከአሸዋና ከመስታወት የተለየ የሚሆነው የአካባቢውን ማህበረሰብ በታማኝነት ለማገልገል የባለቤቶቹ የረጅም ጊዜ ቃል ኪዳን መገለጫ ሲሆን ነው።
                                 </p>
                             </div>
                         </div>
@@ -171,7 +160,7 @@ export default function About() {
                             </div>
                             <div className="absolute -bottom-6 -left-6 bg-white dark:bg-slate-900 rounded-xl p-6 shadow-xl border border-gray-200 dark:border-slate-700 hidden lg:block">
                                 <div className="text-3xl font-bold text-primary-600 dark:text-primary-300 mb-1">15+</div>
-                                <div className="text-sm text-gray-600 dark:text-gray-300">Years of Serving Businesses</div>
+                                <div className="text-sm text-gray-600 dark:text-gray-300">አመታት በግልጋሎት ላይ</div>
                             </div>
                         </div>
                     </div>
@@ -183,10 +172,10 @@ export default function About() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-12">
                         <span className="inline-flex items-center rounded-full bg-primary-100 dark:bg-primary-500/15 px-4 py-2 text-xs font-medium text-primary-700 dark:text-primary-300 uppercase tracking-wide mb-4">
-                            Our Journey
+                            ጉዟችን
                         </span>
                         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                            Milestones Along the Way
+                            የኑዶ የገበያ ማዕከል ታሪክ
                         </h2>
                         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                             Key moments that have shaped Nudo Market Center into the building it is today

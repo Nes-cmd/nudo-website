@@ -98,7 +98,7 @@ export default function BusinessShow({ business }) {
                         {services.length > 0 && (
                             <div>
                                 <h2 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
-                                    Services
+                                    አገልግሎቶች
                                 </h2>
                                 <div className="flex flex-wrap gap-2">
                                     {services.map((service) => (

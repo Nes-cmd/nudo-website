@@ -23,13 +23,13 @@ export default function OpenRooms({ rooms }) {
                 {/* Header */}
                 <div className="text-center mb-12">
                     <span className="inline-flex items-center rounded-full bg-primary-100 dark:bg-primary-500/15 px-4 py-2 text-xs font-medium text-primary-700 dark:text-primary-300 uppercase tracking-wide mb-4">
-                        Available for Rent
+                        አሁን ክፍት የሆኑ
                     </span>
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-                        Rooms <span className="text-primary-600 dark:text-primary-300">Available for Rent</span>
+                         ለኪራይ ክፍት የሆኑ <span className="text-primary-600 dark:text-primary-300">ክፍሎች</span>
                     </h1>
                     <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                        Premium meeting spaces and conference rooms available for monthly rental. Perfect for your business needs.
+                        የተመረጡ ለንግድ፣ ለኤጀንሲ ወይም ልቢሮ የሚሆኑ ሰፋ ያሉ ወይም በአቅምዎ ልክ የሆኑ ሱቆች እኛ ጋር ያገኛሉ።
                     </p>
                 </div>
 
@@ -44,7 +44,7 @@ export default function OpenRooms({ rooms }) {
                 {rooms?.links && rooms.links.length > 1 && (
                     <nav className="mt-10 flex flex-col items-center gap-2 text-xs text-gray-600 dark:text-gray-300">
                         <div className="mb-1">
-                            Page {rooms.current_page} of {rooms.last_page}
+                            ገፅ {rooms.current_page} ከ {rooms.last_page}
                         </div>
                         <div className="flex flex-wrap justify-center gap-1">
                             {rooms.links.map((link, idx) => (
@@ -76,7 +76,7 @@ export default function OpenRooms({ rooms }) {
                 {/* Empty state */}
                 {items.length === 0 && (
                     <div className="text-center py-12">
-                        <p className="text-gray-500 dark:text-gray-400">No rooms available at the moment.</p>
+                        <p className="text-gray-500 dark:text-gray-400">ይቅርታ፣ ለአሁኑ ለኪራይ ክፍት የሆነ ምንም ክፍል የለም!</p>
                     </div>
                 )}
             </div>

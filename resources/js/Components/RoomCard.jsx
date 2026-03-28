@@ -32,7 +32,7 @@ export default function RoomCard({ room }) {
                 {/* Available badge */}
                 <div className="absolute top-4 right-4">
                     <span className="inline-flex items-center rounded-full bg-emerald-500 px-3 py-1 text-xs font-medium text-white shadow-lg">
-                        Available
+                        የሚከራይ
                     </span>
                 </div>
 
@@ -94,7 +94,7 @@ export default function RoomCard({ room }) {
                                 {formatPrice(room.price)}
                             </span>
                             <span className="text-xs text-gray-500 dark:text-gray-400">
-                                ETB
+                                ብር
                             </span>
                         </div>
                         <span className="text-xs text-gray-500 dark:text-gray-400">
@@ -105,7 +105,7 @@ export default function RoomCard({ room }) {
                         href={`/open-rooms/${room.id}`}
                         className="inline-flex items-center rounded-lg bg-primary-600 px-4 py-2 text-xs font-medium text-white hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-400 transition-colors"
                     >
-                        View Details
+                        ዝርዝሩን እይ
                         <svg className="ml-1.5 h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>

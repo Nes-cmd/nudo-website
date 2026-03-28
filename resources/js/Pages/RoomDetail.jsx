@@ -26,16 +26,16 @@ export default function RoomDetail({ room, otherRooms = [] }) {
                 <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
                     <div className="text-center">
                         <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-                            Room Not Found
+                            ምንም ክፍል የለም
                         </h1>
                         <p className="text-gray-600 dark:text-gray-300 mb-6">
-                            The room you're looking for doesn't exist or is no longer available.
+                            የሚፈልጉት ክፍል ሊገኝ አልቻለም ወይም ተይዟል
                         </p>
                         <Link
                             href="/open-rooms"
                             className="inline-flex items-center rounded-lg bg-primary-600 px-4 py-2 text-sm font-medium text-white hover:bg-primary-700 transition-colors"
                         >
-                            View All Rooms
+                        ሁሉንም ክፍሎች ለማየት
                         </Link>
                     </div>
                 </div>
@@ -54,7 +54,7 @@ export default function RoomDetail({ room, otherRooms = [] }) {
                     <svg className="mr-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                     </svg>
-                    Back to Rooms
+                    ለመመለስ
                 </Link>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -71,7 +71,7 @@ export default function RoomDetail({ room, otherRooms = [] }) {
                         </div>
                         <div className="absolute top-4 right-4">
                             <span className="inline-flex items-center rounded-full bg-emerald-500 px-4 py-2 text-sm font-medium text-white shadow-lg">
-                                Available
+                                የሚከራይ
                             </span>
                         </div>
                     </div>
@@ -109,7 +109,7 @@ export default function RoomDetail({ room, otherRooms = [] }) {
                                     {formatPrice(room.price)}
                                 </span>
                                 <span className="text-lg text-gray-500 dark:text-gray-400">
-                                    ETB
+                                    ብር
                                 </span>
                             </div>
                             <span className="text-sm text-gray-500 dark:text-gray-400">
@@ -144,14 +144,14 @@ export default function RoomDetail({ room, otherRooms = [] }) {
                                     onClick={handleBookClick}
                                     className="w-full inline-flex items-center justify-center rounded-lg bg-primary-600 px-6 py-3 text-base font-semibold text-white hover:bg-primary-700 transition-colors shadow-lg"
                                 >
-                                    Book This Room
+                                    ለመከራየት
                                     <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                     </svg>
                                 </button>
                             ) : (
                                 <div className="bg-emerald-50 rounded-lg p-4 border border-emerald-200">
-                                    <p className="text-sm text-gray-600 mb-2">Call us to book this room:</p>
+                                    <p className="text-sm text-gray-600 mb-2">ይህንን ክፍለ ለመከራየት በዚ ስልክ ይደውሉልን</p>
                                     <a
                                         href={`tel:${phoneNumber}`}
                                         className="inline-flex items-center text-lg font-semibold text-emerald-700 hover:text-emerald-800 transition-colors"
@@ -172,10 +172,10 @@ export default function RoomDetail({ room, otherRooms = [] }) {
                     <div className="mt-16 pt-16 border-t border-gray-200 dark:border-slate-800">
                         <div className="mb-8">
                             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                                Other Available Rooms
+                                ሌሎች የሚከራዩ ክፍሎች
                             </h2>
                             <p className="text-gray-600 dark:text-gray-300">
-                                Explore more spaces that might suit your needs
+                                ሌሎች ፍላጎትዎን የሚያሟሉ አማራጮችን ለማየት
                             </p>
                         </div>
 

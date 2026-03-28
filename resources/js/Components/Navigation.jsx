@@ -9,10 +9,10 @@ export default function Navigation() {
     const { auth } = props;
 
     const navigation = [
-        { name: 'Home', href: '/' },
-        { name: 'About', href: '/about' },
-        { name: 'Businesses', href: '/businesses' },
-        { name: 'Open Rooms', href: '/open-rooms' },
+        { name: 'ዋና ገፅ', href: '/' },
+        { name: 'ስለ ኑዶ', href: '/about' },
+        { name: 'ንግዶች', href: '/businesses' },
+        { name: 'የሚከራዩ ክፍሎች', href: '/open-rooms' },
     ];
 
     const isActive = (href) => {
@@ -75,17 +75,17 @@ export default function Navigation() {
                                 </>
                             ) : (
                                 <>
-                                    <Link
+                                    {/* <Link
                                         href="/login"
                                         className="text-sm font-semibold text-gray-700 dark:text-gray-200 hover:text-primary-600 dark:hover:text-primary-300"
                                     >
                                         Log in
-                                    </Link>
+                                    </Link> */}
                                     <Link
-                                        href="/register"
+                                        href="/login"
                                         className="inline-flex items-center rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-400 transition-colors"
                                     >
-                                        Sign up
+                                        Login
                                     </Link>
                                 </>
                             )}
