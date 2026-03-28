@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', config('seo.default_html_lang', 'am')) }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,8 +12,9 @@
             $descAm = config('seo.description_am');
             $keywordsEn = config('seo.keywords_en');
             $keywordsAm = config('seo.keywords_am');
-            $descCombined = collect([$descEn, $descAm])->filter()->implode(' ');
-            $keywordsCombined = collect([$keywordsEn, $keywordsAm])->filter()->implode(', ');
+            $descCombined = collect([$descAm, $descEn])->filter()->implode(' ');
+            $keywordsCombined = collect([$keywordsAm, $keywordsEn])->filter()->implode(', ');
+            $descSocial = filled($descAm) ? $descAm : $descEn;
             $appUrl = rtrim(config('app.url'), '/');
             $ogImagePath = ltrim(config('seo.og_image'), '/');
             $ogImageUrl = $appUrl !== '' ? $appUrl.'/'.$ogImagePath : '/'.$ogImagePath;
@@ -29,14 +30,14 @@
         <meta property="og:type" content="website">
         <meta property="og:url" content="{{ $appUrl }}{{ request()->getRequestUri() }}">
         <meta property="og:title" content="{{ $seoSite }}">
-        <meta property="og:description" content="{{ $descCombined }}">
-        <meta property="og:locale" content="en_US">
-        <meta property="og:locale:alternate" content="am_ET">
+        <meta property="og:description" content="{{ $descSocial }}">
+        <meta property="og:locale" content="am_ET">
+        <meta property="og:locale:alternate" content="en_US">
         <meta property="og:image" content="{{ $ogImageUrl }}">
 
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="{{ $seoSite }}">
-        <meta name="twitter:description" content="{{ $descCombined }}">
+        <meta name="twitter:description" content="{{ $descSocial }}">
         <meta name="twitter:image" content="{{ $ogImageUrl }}">
 
         <script>

@@ -294,7 +294,7 @@ class RoomController extends Controller
                 return [];
             }
            
-            $url = "{$baseUrl}/api/partner/v1/companies/{$companyId}/available-units?page={$page}";
+            $url = "{$baseUrl}/api/partner/v1/companies/{$companyId}/available-units?page={$page}&locale=am&per_page=15";
 
             $response = Http::withHeaders([
                 'X-API-KEY' => $apiKey,

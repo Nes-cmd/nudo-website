@@ -27,4 +27,9 @@ return [
 
     'og_image' => env('SEO_OG_IMAGE', '/logo/Nudo-logo-main-removebg-preview.png'),
 
+    /*
+    | Document language for crawlers (html lang). Preview text uses Amharic first; see app.blade.php.
+    */
+    'default_html_lang' => env('SEO_HTML_LANG', 'am'),
+
 ];
