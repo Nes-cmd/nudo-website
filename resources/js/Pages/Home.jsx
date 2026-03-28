@@ -188,7 +188,7 @@ export default function Home({ rooms = [], businesses = [], heroes = [] }) {
                                 className="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide [&::-webkit-scrollbar]:hidden"
                                 style={{ scrollSnapType: 'x mandatory', scrollbarWidth: 'none' }}
                             >
-                                {businesses.map((business, index) => {
+                                {businesses.map((business) => {
                                     const images = Array.isArray(business.image)
                                         ? business.image
                                         : business.image
@@ -201,9 +201,8 @@ export default function Home({ rooms = [], businesses = [], heroes = [] }) {
                                     return (
                                         <Link
                                             key={business.id}
-                                            href="/businesses"
+                                            href={`/businesses/${business.id}`}
                                             className="group relative flex-none w-[85vw] sm:w-[70vw] lg:w-[50vw] overflow-hidden rounded-3xl bg-white dark:bg-slate-900 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100/70 dark:border-slate-700 snap-start"
-                                            onClick={() => scrollToIndex(index)}
                                         >
                                             {/* Image / collage */}
                                             <div className="relative h-64 sm:h-80 md:h-88 overflow-hidden">

@@ -16,7 +16,7 @@ export default function AuthenticatedLayout({ header, children }) {
     ];
 
     return (
-        <div className="relative min-h-screen bg-gray-50 dark:bg-slate-900/95 text-gray-900 dark:text-gray-100 flex">
+        <div className="relative min-h-screen bg-gray-100 dark:bg-slate-900/95 text-gray-900 dark:text-gray-100 flex">
             {/* Midnight starfield — dark mode only */}
             <div className="midnight-starfield pointer-events-none fixed inset-0 z-0 hidden dark:block">
                 <Starfield />
@@ -175,7 +175,7 @@ export default function AuthenticatedLayout({ header, children }) {
                     </div>
                 </header>
 
-                <main className="flex-1 overflow-y-auto bg-gray-50 dark:bg-transparent">
+                <main className="flex-1 overflow-y-auto bg-gray-100 dark:bg-transparent">
                     {children}
                 </main>
             </div>

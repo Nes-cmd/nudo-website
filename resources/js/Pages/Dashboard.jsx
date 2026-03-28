@@ -2,7 +2,16 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, router } from '@inertiajs/react';
 import { useState } from 'react';
 
-export default function Dashboard({ heroes = [] }) {
+const defaultStats = {
+    businesses: 0,
+    rooms: 0,
+    totalRooms: 0,
+    customersIn: 0,
+    customersOut: 0,
+};
+
+export default function Dashboard({ heroes = [], stats: statsProp }) {
+    const stats = { ...defaultStats, ...statsProp };
     const [showCreateModal, setShowCreateModal] = useState(false);
     const [heroToDelete, setHeroToDelete] = useState(null);
     const [form, setForm] = useState({
@@ -73,6 +82,47 @@ export default function Dashboard({ heroes = [] }) {
         });
     };
 
+    const statCards = [
+        {
+            label: 'Businesses',
+            value: stats.businesses,
+            valueClass:
+                'text-gray-900 dark:text-white',
+            accent: 'border-l-primary-500 bg-gradient-to-br from-primary-50/80 to-white dark:from-primary-950/40 dark:to-slate-900',
+        },
+        {
+            label: 'Rooms',
+            value: stats.rooms,
+            valueClass: 'text-gray-900 dark:text-white',
+            accent:
+                'border-l-sky-500 bg-gradient-to-br from-sky-50/80 to-white dark:from-sky-950/35 dark:to-slate-900',
+        },
+        {
+            label: 'Total rooms',
+            value: stats.totalRooms,
+            valueClass:
+                'text-primary-700 dark:text-primary-300',
+            accent:
+                'border-l-violet-500 bg-gradient-to-br from-violet-50/80 to-white dark:from-violet-950/35 dark:to-slate-900',
+        },
+        {
+            label: 'Customers in',
+            value: stats.customersIn,
+            valueClass:
+                'text-emerald-700 dark:text-emerald-300',
+            accent:
+                'border-l-emerald-500 bg-gradient-to-br from-emerald-50/80 to-white dark:from-emerald-950/35 dark:to-slate-900',
+        },
+        {
+            label: 'Customers out',
+            value: stats.customersOut,
+            valueClass:
+                'text-amber-700 dark:text-amber-300',
+            accent:
+                'border-l-amber-500 bg-gradient-to-br from-amber-50/80 to-white dark:from-amber-950/30 dark:to-slate-900',
+        },
+    ];
+
     return (
         <AuthenticatedLayout
             header={
@@ -83,53 +133,101 @@ export default function Dashboard({ heroes = [] }) {
         >
             <Head title="Dashboard" />
 
-            <div className="px-4 py-6 sm:px-6 lg:px-8 space-y-6">
-                {/* Hero images header / add button */}
-                <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                        Hero images
-                    </h3>
-                    <button
-                        type="button"
-                        onClick={() => setShowCreateModal(true)}
-                        className="inline-flex items-center rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-400 transition-colors"
-                    >
-                        Add hero
-                    </button>
-                </div>
-
-                {/* Horizontal strip of images */}
-                <section className="bg-white dark:bg-slate-900 rounded-2xl border border-gray-200 dark:border-slate-800 shadow-sm p-4">
-                    {(!heroes || heroes.length === 0) ? (
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
-                            No hero images yet. Use “Add hero” to create one.
+            <div className="px-4 py-6 sm:px-6 lg:px-8 space-y-8">
+                <section
+                    aria-labelledby="dashboard-stats-heading"
+                    className="rounded-2xl border border-gray-200/90 dark:border-slate-700/90 bg-white dark:bg-slate-900 shadow-md shadow-gray-200/40 dark:shadow-black/20 overflow-hidden"
+                >
+                    <div className="px-5 py-4 sm:px-6 sm:py-5 border-b border-gray-100 dark:border-slate-800/80 bg-gradient-to-r from-gray-50/90 to-white dark:from-slate-800/40 dark:to-slate-900">
+                        <h3
+                            id="dashboard-stats-heading"
+                            className="text-base font-semibold text-gray-900 dark:text-white tracking-tight"
+                        >
+                            At a glance
+                        </h3>
+                        <p className="mt-0.5 text-sm text-gray-500 dark:text-gray-400">
+                            Key numbers across your site
                         </p>
-                    ) : (
-                        <div className="flex gap-4 overflow-x-auto pb-1">
-                            {heroes.map((hero) => (
+                    </div>
+                    <div className="p-4 sm:p-6">
+                        <div className="grid grid-cols-2 gap-4 lg:grid-cols-5">
+                            {statCards.map((card) => (
                                 <div
-                                    key={hero.id}
-                                    className="relative flex-shrink-0 w-40 h-24 rounded-xl overflow-hidden bg-gray-200 dark:bg-slate-800"
+                                    key={card.label}
+                                    className={`rounded-2xl border border-gray-200/70 dark:border-slate-700/80 border-l-4 pl-4 pr-3 py-4 shadow-sm transition-shadow hover:shadow-md dark:hover:shadow-lg dark:hover:shadow-black/25 ${card.accent}`}
                                 >
-                                    {hero.image && (
-                                        <img
-                                            src={toUrl(hero.image)}
-                                            alt={hero.title || 'Hero image'}
-                                            className="h-full w-full object-cover"
-                                        />
-                                    )}
-                                    <button
-                                        type="button"
-                                        onClick={() => requestDelete(hero)}
-                                        className="absolute top-1 right-1 inline-flex items-center justify-center rounded-full bg-black/65 text-white hover:bg-black/80 h-6 w-6 text-xs shadow-sm"
-                                        title="Remove"
+                                    <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
+                                        {card.label}
+                                    </p>
+                                    <p
+                                        className={`mt-2 text-3xl font-bold tabular-nums tracking-tight ${card.valueClass}`}
                                     >
-                                        ×
-                                    </button>
+                                        {card.value}
+                                    </p>
                                 </div>
                             ))}
                         </div>
-                    )}
+                    </div>
+                </section>
+
+                <section
+                    aria-labelledby="dashboard-hero-heading"
+                    className="rounded-2xl border border-gray-200/90 dark:border-slate-700/90 bg-white dark:bg-slate-900 shadow-md shadow-gray-200/40 dark:shadow-black/20 overflow-hidden"
+                >
+                    <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between px-5 py-4 sm:px-6 sm:py-5 border-b border-gray-100 dark:border-slate-800/80 bg-gradient-to-r from-gray-50/90 to-white dark:from-slate-800/40 dark:to-slate-900">
+                        <div>
+                            <h3
+                                id="dashboard-hero-heading"
+                                className="text-lg font-semibold text-gray-900 dark:text-white tracking-tight"
+                            >
+                                Hero images
+                            </h3>
+                            <p className="mt-1 text-sm text-gray-500 dark:text-gray-400 max-w-xl">
+                                Images shown on the home page carousel. Add, preview, or remove slides below.
+                            </p>
+                        </div>
+                        <button
+                            type="button"
+                            onClick={() => setShowCreateModal(true)}
+                            className="inline-flex shrink-0 items-center justify-center rounded-xl bg-primary-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-400 transition-colors"
+                        >
+                            Add hero
+                        </button>
+                    </div>
+                    <div className="p-5 sm:p-6 bg-gray-50/50 dark:bg-slate-950/20">
+                        {(!heroes || heroes.length === 0) ? (
+                            <div className="rounded-xl border border-dashed border-gray-300 dark:border-slate-600 bg-white/60 dark:bg-slate-900/40 px-6 py-10 text-center">
+                                <p className="text-sm text-gray-600 dark:text-gray-400">
+                                    No hero images yet. Use <span className="font-medium text-gray-800 dark:text-gray-200">Add hero</span> to create one.
+                                </p>
+                            </div>
+                        ) : (
+                            <div className="flex gap-4 overflow-x-auto pb-2 pt-0.5">
+                                {heroes.map((hero) => (
+                                    <div
+                                        key={hero.id}
+                                        className="relative flex-shrink-0 w-44 h-28 rounded-xl overflow-hidden bg-gray-200 dark:bg-slate-800 ring-1 ring-gray-200/80 dark:ring-slate-700 shadow-sm"
+                                    >
+                                        {hero.image && (
+                                            <img
+                                                src={toUrl(hero.image)}
+                                                alt={hero.title || 'Hero image'}
+                                                className="h-full w-full object-cover"
+                                            />
+                                        )}
+                                        <button
+                                            type="button"
+                                            onClick={() => requestDelete(hero)}
+                                            className="absolute top-2 right-2 inline-flex items-center justify-center rounded-full bg-black/60 text-white hover:bg-black/75 h-7 w-7 text-sm font-medium shadow-md backdrop-blur-sm transition-colors"
+                                            title="Remove"
+                                        >
+                                            ×
+                                        </button>
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
                 </section>
             </div>
 
@@ -246,7 +344,7 @@ export default function Dashboard({ heroes = [] }) {
                                 </button>
                                 <button
                                     type="submit"
-                                    className="inline-flex items-center rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text:white text-white hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-400 transition-colors"
+                                    className="inline-flex items-center rounded-lg bg-primary-600 px-4 py-2 text-sm font-semibold text-white hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-400 transition-colors"
                                 >
                                     Save hero
                                 </button>

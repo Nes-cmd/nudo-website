@@ -7,7 +7,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\Dashboard\BusinessAdminController;
 use App\Http\Controllers\Dashboard\HeroImageController;
+use App\Models\Business;
 use App\Models\HeroImage;
+use App\Models\Room;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -35,6 +37,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
             return Inertia::render('Dashboard', [
                 'heroes' => $heroes,
+                'stats' => [
+                    'businesses' => Business::count(),
+                    'rooms' => Room::count(),
+                    // Static display values — adjust here or move to config when you have real sources
+                    'totalRooms' => 120,
+                    'customersIn' => 42,
+                    'customersOut' => 38,
+                ],
             ]);
         })->name('dashboard');
 

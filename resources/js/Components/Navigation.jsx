@@ -23,8 +23,14 @@ export default function Navigation() {
     };
 
     return (
-        <nav className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-sm border-b border-gray-200/50 dark:border-slate-800/60 sticky top-0 z-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav className="sticky top-0 z-50 overflow-hidden border-b border-orange-100/70 bg-white/80 shadow-sm backdrop-blur-md dark:border-slate-800/60 dark:bg-slate-900/95">
+            {/* Light: warm glass bar — matches MainLayout */}
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary-50/70 via-white/55 to-amber-50/55 dark:hidden" />
+            <div className="pointer-events-none absolute -top-20 left-[18%] h-40 w-[min(42rem,85vw)] rounded-full bg-primary-200/30 blur-2xl dark:hidden" />
+            <div className="pointer-events-none absolute -top-8 right-[8%] h-28 w-48 rounded-full bg-amber-200/25 blur-2xl dark:hidden" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary-300/35 to-transparent dark:hidden" />
+
+            <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-20">
                     <div className="flex items-center">
                         <div className="shrink-0 flex items-center">
@@ -42,7 +48,7 @@ export default function Navigation() {
                                         className={`relative inline-flex items-center px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-200 ${
                                             active
                                                 ? 'text-primary-600 bg-primary-50 dark:text-primary-300 dark:bg-slate-800'
-                                                : 'text-gray-600 hover:text-primary-600 hover:bg-gray-50 dark:text-gray-200 dark:hover:text-primary-300 dark:hover:bg-slate-800'
+                                                : 'text-gray-600 hover:text-primary-600 hover:bg-orange-50/80 dark:text-gray-200 dark:hover:text-primary-300 dark:hover:bg-slate-800'
                                         }`}
                                     >
                                         {item.name}
@@ -88,7 +94,7 @@ export default function Navigation() {
                             <DarkModeToggle />
                             <button
                                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                                className="inline-flex items-center justify-center p-2 rounded-lg text-gray-600 hover:text-primary-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-all duration-200"
+                                className="inline-flex items-center justify-center p-2 rounded-lg text-gray-600 hover:text-primary-600 hover:bg-orange-50/90 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-all duration-200 dark:hover:bg-slate-800"
                                 aria-label="Toggle menu"
                             >
                                 <svg
@@ -121,7 +127,7 @@ export default function Navigation() {
 
             {/* Mobile menu */}
             {mobileMenuOpen && (
-                <div className="sm:hidden border-t border-gray-200 bg-white">
+                <div className="relative z-10 sm:hidden border-t border-orange-100/70 bg-gradient-to-b from-white/98 to-orange-50/45 dark:border-slate-800 dark:from-slate-900 dark:to-slate-900">
                     <div className="pt-2 pb-4 space-y-1 px-2">
                         {navigation.map((item) => {
                             const active = isActive(item.href);
@@ -132,7 +138,7 @@ export default function Navigation() {
                                     className={`relative flex items-center pl-4 pr-4 py-3 rounded-lg text-base font-semibold transition-all duration-200 ${
                                         active
                                             ? 'text-primary-600 bg-primary-50 border-l-4 border-primary-500'
-                                            : 'text-gray-600 hover:text-primary-600 hover:bg-gray-50'
+                                            : 'text-gray-600 hover:text-primary-600 hover:bg-orange-50/80 dark:hover:bg-slate-800'
                                     }`}
                                     onClick={() => setMobileMenuOpen(false)}
                                 >
@@ -154,7 +160,7 @@ export default function Navigation() {
                             );
                         })}
 
-                        <div className="mt-4 border-t border-gray-100 pt-4 space-y-2">
+                        <div className="mt-4 border-t border-orange-100/60 pt-4 space-y-2 dark:border-slate-800">
                             {auth?.user ? (
                                 <>
                                     <Link
@@ -170,7 +176,7 @@ export default function Navigation() {
                                 <>
                                     <Link
                                         href="/login"
-                                        className="block w-full text-center rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-gray-100 transition-colors"
+                                        className="block w-full text-center rounded-lg border border-gray-300 px-4 py-2 text-sm font-semibold text-gray-700 hover:bg-orange-50/90 transition-colors dark:border-slate-600 dark:text-gray-200 dark:hover:bg-slate-800"
                                         onClick={() => setMobileMenuOpen(false)}
                                     >
                                         Log in
