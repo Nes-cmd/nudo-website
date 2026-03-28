@@ -471,7 +471,30 @@ export default function Home({ rooms = [], businesses = [], heroes = [] }) {
                 </div>
             </section>
 
-            
+            {/* Location — Nudo Market Center */}
+            <section className="bg-gray-100 dark:bg-slate-950 py-16 sm:py-20 border-t border-gray-200 dark:border-slate-800">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-10">
+                        <span className="inline-flex items-center rounded-full bg-primary-100 dark:bg-primary-500/15 px-4 py-2 text-xs font-medium text-primary-700 dark:text-primary-300 uppercase tracking-wide mb-4">
+                           በካርታ ላይ ቦታችንን ያግኙን
+                        </span>
+                        <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-3">
+                        ኑዶ የገበያ ማዕከል
+                        </h2>
+                        
+                    </div>
+                    <div className="relative w-full overflow-hidden rounded-2xl border border-gray-200 dark:border-slate-700 shadow-xl bg-slate-200 dark:bg-slate-800 aspect-[4/3] sm:aspect-[21/9] min-h-[280px] max-h-[560px]">
+                        <iframe
+                            title="Nudo Market Center on Google Maps"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.3612827994257!2d38.74340477595848!3d9.03076959103063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85f10236aacb%3A0x5d3c0d0d5fb0155b!2sNudo%20Market%20Center!5e0!3m2!1sen!2set!4v1774730566035!5m2!1sen!2set"
+                            className="absolute inset-0 h-full w-full border-0"
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                        />
+                    </div>
+                </div>
+            </section>
         </MainLayout>
     );
 }
