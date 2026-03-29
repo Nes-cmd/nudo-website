@@ -306,11 +306,11 @@ export default function MarketDirectoryGrid({ categories = [] }) {
                                                         />
                                                         <div className="min-w-0 flex-1">
                                                             <span className="block font-medium leading-snug">{name}</span>
-                                                            {address ? (
+                                                            {/* {address ? (
                                                                 <span className="mt-1 block text-[11px] leading-tight text-gray-500 dark:text-gray-400">
                                                                     {address}
                                                                 </span>
-                                                            ) : null}
+                                                            ) : null} */}
                                                         </div>
                                                     </li>
                                                 );

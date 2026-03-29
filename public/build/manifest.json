@@ -1,72 +1,72 @@
 {
-  "_AuthenticatedLayout-DkdWgFqO.js": {
-    "file": "assets/AuthenticatedLayout-DkdWgFqO.js",
+  "_AuthenticatedLayout-D-EVEhRg.js": {
+    "file": "assets/AuthenticatedLayout-D-EVEhRg.js",
     "name": "AuthenticatedLayout",
     "imports": [
       "resources/js/app.jsx",
-      "_Starfield-CrLB_LWJ.js"
+      "_Starfield-BhheMtgG.js"
     ]
   },
-  "_GuestLayout-BbyHUciq.js": {
-    "file": "assets/GuestLayout-BbyHUciq.js",
+  "_GuestLayout-B2hGoUw9.js": {
+    "file": "assets/GuestLayout-B2hGoUw9.js",
     "name": "GuestLayout",
     "imports": [
       "resources/js/app.jsx",
-      "_Starfield-CrLB_LWJ.js"
+      "_Starfield-BhheMtgG.js"
     ]
   },
-  "_InputLabel-DJWPK5oH.js": {
-    "file": "assets/InputLabel-DJWPK5oH.js",
+  "_InputLabel-By10ok6k.js": {
+    "file": "assets/InputLabel-By10ok6k.js",
     "name": "InputLabel",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_MainLayout-cfa8z2lV.js": {
-    "file": "assets/MainLayout-cfa8z2lV.js",
+  "_MainLayout-CUhcqPAO.js": {
+    "file": "assets/MainLayout-CUhcqPAO.js",
     "name": "MainLayout",
     "imports": [
       "resources/js/app.jsx",
-      "_Starfield-CrLB_LWJ.js"
+      "_Starfield-BhheMtgG.js"
     ]
   },
-  "_MarketDirectoryGrid-Caafyp5l.js": {
-    "file": "assets/MarketDirectoryGrid-Caafyp5l.js",
+  "_MarketDirectoryGrid-qTEYEl3_.js": {
+    "file": "assets/MarketDirectoryGrid-qTEYEl3_.js",
     "name": "MarketDirectoryGrid",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_PrimaryButton-C4OdcCHp.js": {
-    "file": "assets/PrimaryButton-C4OdcCHp.js",
+  "_PrimaryButton-Dyzgh1Ee.js": {
+    "file": "assets/PrimaryButton-Dyzgh1Ee.js",
     "name": "PrimaryButton",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_RoomCard-6yLhMtL4.js": {
-    "file": "assets/RoomCard-6yLhMtL4.js",
+  "_RoomCard-NXHGHes4.js": {
+    "file": "assets/RoomCard-NXHGHes4.js",
     "name": "RoomCard",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_Starfield-CrLB_LWJ.js": {
-    "file": "assets/Starfield-CrLB_LWJ.js",
+  "_Starfield-BhheMtgG.js": {
+    "file": "assets/Starfield-BhheMtgG.js",
     "name": "Starfield",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_TextInput-BrFOD1A3.js": {
-    "file": "assets/TextInput-BrFOD1A3.js",
+  "_TextInput-DYagibY1.js": {
+    "file": "assets/TextInput-DYagibY1.js",
     "name": "TextInput",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_transition-BUmuVeI6.js": {
-    "file": "assets/transition-BUmuVeI6.js",
+  "_transition-DPOCtuVc.js": {
+    "file": "assets/transition-DPOCtuVc.js",
     "name": "transition",
     "imports": [
       "resources/js/app.jsx"
@@ -82,332 +82,332 @@
     ]
   },
   "resources/js/Pages/About.jsx": {
-    "file": "assets/About-CQP14573.js",
+    "file": "assets/About-Dgf7a1sh.js",
     "name": "About",
     "src": "resources/js/Pages/About.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_MainLayout-cfa8z2lV.js",
-      "_Starfield-CrLB_LWJ.js"
+      "_MainLayout-CUhcqPAO.js",
+      "_Starfield-BhheMtgG.js"
     ],
     "css": [
       "assets/app-yAZhgLQq.css"
     ]
   },
   "resources/js/Pages/Auth/ConfirmPassword.jsx": {
-    "file": "assets/ConfirmPassword-CE44CYMG.js",
+    "file": "assets/ConfirmPassword-Bunyg1fS.js",
     "name": "ConfirmPassword",
     "src": "resources/js/Pages/Auth/ConfirmPassword.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_TextInput-BrFOD1A3.js",
-      "_InputLabel-DJWPK5oH.js",
-      "_PrimaryButton-C4OdcCHp.js",
-      "_GuestLayout-BbyHUciq.js",
-      "_Starfield-CrLB_LWJ.js"
+      "_TextInput-DYagibY1.js",
+      "_InputLabel-By10ok6k.js",
+      "_PrimaryButton-Dyzgh1Ee.js",
+      "_GuestLayout-B2hGoUw9.js",
+      "_Starfield-BhheMtgG.js"
     ],
     "css": [
       "assets/app-yAZhgLQq.css"
     ]
   },
   "resources/js/Pages/Auth/ForgotPassword.jsx": {
-    "file": "assets/ForgotPassword-D6ED0YX3.js",
+    "file": "assets/ForgotPassword-CJrU9pe1.js",
     "name": "ForgotPassword",
     "src": "resources/js/Pages/Auth/ForgotPassword.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_TextInput-BrFOD1A3.js",
-      "_PrimaryButton-C4OdcCHp.js",
-      "_GuestLayout-BbyHUciq.js",
-      "_Starfield-CrLB_LWJ.js"
+      "_TextInput-DYagibY1.js",
+      "_PrimaryButton-Dyzgh1Ee.js",
+      "_GuestLayout-B2hGoUw9.js",
+      "_Starfield-BhheMtgG.js"
     ],
     "css": [
       "assets/app-yAZhgLQq.css"
     ]
   },
   "resources/js/Pages/Auth/Login.jsx": {
-    "file": "assets/Login-naGLYr1z.js",
+    "file": "assets/Login-BeG3HP5u.js",
     "name": "Login",
     "src": "resources/js/Pages/Auth/Login.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_TextInput-BrFOD1A3.js",
-      "_InputLabel-DJWPK5oH.js",
-      "_PrimaryButton-C4OdcCHp.js",
-      "_GuestLayout-BbyHUciq.js",
-      "_Starfield-CrLB_LWJ.js"
+      "_TextInput-DYagibY1.js",
+      "_InputLabel-By10ok6k.js",
+      "_PrimaryButton-Dyzgh1Ee.js",
+      "_GuestLayout-B2hGoUw9.js",
+      "_Starfield-BhheMtgG.js"
     ],
     "css": [
       "assets/app-yAZhgLQq.css"
     ]
   },
   "resources/js/Pages/Auth/Register.jsx": {
-    "file": "assets/Register-CgdBMHaw.js",
+    "file": "assets/Register-Ce57BcnC.js",
     "name": "Register",
     "src": "resources/js/Pages/Auth/Register.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_TextInput-BrFOD1A3.js",
-      "_InputLabel-DJWPK5oH.js",
-      "_PrimaryButton-C4OdcCHp.js",
-      "_GuestLayout-BbyHUciq.js",
-      "_Starfield-CrLB_LWJ.js"
+      "_TextInput-DYagibY1.js",
+      "_InputLabel-By10ok6k.js",
+      "_PrimaryButton-Dyzgh1Ee.js",
+      "_GuestLayout-B2hGoUw9.js",
+      "_Starfield-BhheMtgG.js"
     ],
     "css": [
       "assets/app-yAZhgLQq.css"
     ]
   },
   "resources/js/Pages/Auth/ResetPassword.jsx": {
-    "file": "assets/ResetPassword-CUxWzw6A.js",
+    "file": "assets/ResetPassword-C6gYxIyr.js",
     "name": "ResetPassword",
     "src": "resources/js/Pages/Auth/ResetPassword.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_TextInput-BrFOD1A3.js",
-      "_InputLabel-DJWPK5oH.js",
-      "_PrimaryButton-C4OdcCHp.js",
-      "_GuestLayout-BbyHUciq.js",
-      "_Starfield-CrLB_LWJ.js"
+      "_TextInput-DYagibY1.js",
+      "_InputLabel-By10ok6k.js",
+      "_PrimaryButton-Dyzgh1Ee.js",
+      "_GuestLayout-B2hGoUw9.js",
+      "_Starfield-BhheMtgG.js"
     ],
     "css": [
       "assets/app-yAZhgLQq.css"
     ]
   },
   "resources/js/Pages/Auth/VerifyEmail.jsx": {
-    "file": "assets/VerifyEmail-B-gkexjk.js",
+    "file": "assets/VerifyEmail-rW71oe6m.js",
     "name": "VerifyEmail",
     "src": "resources/js/Pages/Auth/VerifyEmail.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_PrimaryButton-C4OdcCHp.js",
-      "_GuestLayout-BbyHUciq.js",
-      "_Starfield-CrLB_LWJ.js"
+      "_PrimaryButton-Dyzgh1Ee.js",
+      "_GuestLayout-B2hGoUw9.js",
+      "_Starfield-BhheMtgG.js"
     ],
     "css": [
       "assets/app-yAZhgLQq.css"
     ]
   },
   "resources/js/Pages/Businesses.jsx": {
-    "file": "assets/Businesses-DLlcd9H_.js",
+    "file": "assets/Businesses-BjuH0MPn.js",
     "name": "Businesses",
     "src": "resources/js/Pages/Businesses.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_MarketDirectoryGrid-Caafyp5l.js",
-      "_MainLayout-cfa8z2lV.js",
-      "_Starfield-CrLB_LWJ.js"
+      "_MarketDirectoryGrid-qTEYEl3_.js",
+      "_MainLayout-CUhcqPAO.js",
+      "_Starfield-BhheMtgG.js"
     ],
     "css": [
       "assets/app-yAZhgLQq.css"
     ]
   },
   "resources/js/Pages/Businesses/Show.jsx": {
-    "file": "assets/Show-DbNhzHtk.js",
+    "file": "assets/Show-j1OmJ-Kt.js",
     "name": "Show",
     "src": "resources/js/Pages/Businesses/Show.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_MainLayout-cfa8z2lV.js",
-      "_Starfield-CrLB_LWJ.js"
+      "_MainLayout-CUhcqPAO.js",
+      "_Starfield-BhheMtgG.js"
     ],
     "css": [
       "assets/app-yAZhgLQq.css"
     ]
   },
   "resources/js/Pages/Dashboard.jsx": {
-    "file": "assets/Dashboard-DGbJXaXS.js",
+    "file": "assets/Dashboard-BSMC34iU.js",
     "name": "Dashboard",
     "src": "resources/js/Pages/Dashboard.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_AuthenticatedLayout-DkdWgFqO.js",
-      "_Starfield-CrLB_LWJ.js"
+      "_AuthenticatedLayout-D-EVEhRg.js",
+      "_Starfield-BhheMtgG.js"
     ],
     "css": [
       "assets/app-yAZhgLQq.css"
     ]
   },
   "resources/js/Pages/Dashboard/Businesses/Edit.jsx": {
-    "file": "assets/Edit-RNOsh5PH.js",
+    "file": "assets/Edit-D-ZCMQ9s.js",
     "name": "Edit",
     "src": "resources/js/Pages/Dashboard/Businesses/Edit.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_AuthenticatedLayout-DkdWgFqO.js",
-      "_Starfield-CrLB_LWJ.js"
+      "_AuthenticatedLayout-D-EVEhRg.js",
+      "_Starfield-BhheMtgG.js"
     ],
     "css": [
       "assets/app-yAZhgLQq.css"
     ]
   },
   "resources/js/Pages/Dashboard/Businesses/Index.jsx": {
-    "file": "assets/Index-CoknZC1A.js",
+    "file": "assets/Index-p6_-07lz.js",
     "name": "Index",
     "src": "resources/js/Pages/Dashboard/Businesses/Index.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_AuthenticatedLayout-DkdWgFqO.js",
-      "_Starfield-CrLB_LWJ.js"
+      "_AuthenticatedLayout-D-EVEhRg.js",
+      "_Starfield-BhheMtgG.js"
     ],
     "css": [
       "assets/app-yAZhgLQq.css"
     ]
   },
   "resources/js/Pages/Dashboard/Businesses/Show.jsx": {
-    "file": "assets/Show-BXEHYNfD.js",
+    "file": "assets/Show-BVOKjZFD.js",
     "name": "Show",
     "src": "resources/js/Pages/Dashboard/Businesses/Show.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_AuthenticatedLayout-DkdWgFqO.js",
-      "_Starfield-CrLB_LWJ.js"
+      "_AuthenticatedLayout-D-EVEhRg.js",
+      "_Starfield-BhheMtgG.js"
     ],
     "css": [
       "assets/app-yAZhgLQq.css"
     ]
   },
   "resources/js/Pages/Dashboard/HeroImages/Index.jsx": {
-    "file": "assets/Index-Xpq5p1PD.js",
+    "file": "assets/Index-Ce_78Sjc.js",
     "name": "Index",
     "src": "resources/js/Pages/Dashboard/HeroImages/Index.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_AuthenticatedLayout-DkdWgFqO.js",
-      "_Starfield-CrLB_LWJ.js"
+      "_AuthenticatedLayout-D-EVEhRg.js",
+      "_Starfield-BhheMtgG.js"
     ],
     "css": [
       "assets/app-yAZhgLQq.css"
     ]
   },
   "resources/js/Pages/Home.jsx": {
-    "file": "assets/Home-DvSiy3gV.js",
+    "file": "assets/Home-BLh62c3S.js",
     "name": "Home",
     "src": "resources/js/Pages/Home.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_MarketDirectoryGrid-Caafyp5l.js",
-      "_MainLayout-cfa8z2lV.js",
-      "_Starfield-CrLB_LWJ.js"
+      "_MarketDirectoryGrid-qTEYEl3_.js",
+      "_MainLayout-CUhcqPAO.js",
+      "_Starfield-BhheMtgG.js"
     ],
     "css": [
       "assets/app-yAZhgLQq.css"
     ]
   },
   "resources/js/Pages/OpenRooms.jsx": {
-    "file": "assets/OpenRooms--emE3GfN.js",
+    "file": "assets/OpenRooms-BapV7ZNV.js",
     "name": "OpenRooms",
     "src": "resources/js/Pages/OpenRooms.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_MainLayout-cfa8z2lV.js",
-      "_RoomCard-6yLhMtL4.js",
-      "_Starfield-CrLB_LWJ.js"
+      "_MainLayout-CUhcqPAO.js",
+      "_RoomCard-NXHGHes4.js",
+      "_Starfield-BhheMtgG.js"
     ],
     "css": [
       "assets/app-yAZhgLQq.css"
     ]
   },
   "resources/js/Pages/Profile/Edit.jsx": {
-    "file": "assets/Edit-rUPGwaJy.js",
+    "file": "assets/Edit-C4zaPl26.js",
     "name": "Edit",
     "src": "resources/js/Pages/Profile/Edit.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_AuthenticatedLayout-DkdWgFqO.js",
+      "_AuthenticatedLayout-D-EVEhRg.js",
       "resources/js/Pages/Profile/Partials/DeleteUserForm.jsx",
       "resources/js/Pages/Profile/Partials/UpdatePasswordForm.jsx",
       "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.jsx",
-      "_Starfield-CrLB_LWJ.js",
-      "_TextInput-BrFOD1A3.js",
-      "_InputLabel-DJWPK5oH.js",
-      "_transition-BUmuVeI6.js",
-      "_PrimaryButton-C4OdcCHp.js"
+      "_Starfield-BhheMtgG.js",
+      "_TextInput-DYagibY1.js",
+      "_InputLabel-By10ok6k.js",
+      "_transition-DPOCtuVc.js",
+      "_PrimaryButton-Dyzgh1Ee.js"
     ],
     "css": [
       "assets/app-yAZhgLQq.css"
     ]
   },
   "resources/js/Pages/Profile/Partials/DeleteUserForm.jsx": {
-    "file": "assets/DeleteUserForm-BcAggS5L.js",
+    "file": "assets/DeleteUserForm-VWEGMlG3.js",
     "name": "DeleteUserForm",
     "src": "resources/js/Pages/Profile/Partials/DeleteUserForm.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_TextInput-BrFOD1A3.js",
-      "_InputLabel-DJWPK5oH.js",
-      "_transition-BUmuVeI6.js"
+      "_TextInput-DYagibY1.js",
+      "_InputLabel-By10ok6k.js",
+      "_transition-DPOCtuVc.js"
     ],
     "css": [
       "assets/app-yAZhgLQq.css"
     ]
   },
   "resources/js/Pages/Profile/Partials/UpdatePasswordForm.jsx": {
-    "file": "assets/UpdatePasswordForm-Bg04JoDP.js",
+    "file": "assets/UpdatePasswordForm-CV0jBVxD.js",
     "name": "UpdatePasswordForm",
     "src": "resources/js/Pages/Profile/Partials/UpdatePasswordForm.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_TextInput-BrFOD1A3.js",
-      "_InputLabel-DJWPK5oH.js",
-      "_PrimaryButton-C4OdcCHp.js",
-      "_transition-BUmuVeI6.js"
+      "_TextInput-DYagibY1.js",
+      "_InputLabel-By10ok6k.js",
+      "_PrimaryButton-Dyzgh1Ee.js",
+      "_transition-DPOCtuVc.js"
     ],
     "css": [
       "assets/app-yAZhgLQq.css"
     ]
   },
   "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.jsx": {
-    "file": "assets/UpdateProfileInformationForm-CFjV32oS.js",
+    "file": "assets/UpdateProfileInformationForm-BqbTcJ4n.js",
     "name": "UpdateProfileInformationForm",
     "src": "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_TextInput-BrFOD1A3.js",
-      "_InputLabel-DJWPK5oH.js",
-      "_PrimaryButton-C4OdcCHp.js",
-      "_transition-BUmuVeI6.js"
+      "_TextInput-DYagibY1.js",
+      "_InputLabel-By10ok6k.js",
+      "_PrimaryButton-Dyzgh1Ee.js",
+      "_transition-DPOCtuVc.js"
     ],
     "css": [
       "assets/app-yAZhgLQq.css"
     ]
   },
   "resources/js/Pages/RoomDetail.jsx": {
-    "file": "assets/RoomDetail-Cjgcd_bP.js",
+    "file": "assets/RoomDetail-BVgmteGA.js",
     "name": "RoomDetail",
     "src": "resources/js/Pages/RoomDetail.jsx",
     "isDynamicEntry": true,
     "imports": [
       "resources/js/app.jsx",
-      "_MainLayout-cfa8z2lV.js",
-      "_RoomCard-6yLhMtL4.js",
-      "_Starfield-CrLB_LWJ.js"
+      "_MainLayout-CUhcqPAO.js",
+      "_RoomCard-NXHGHes4.js",
+      "_Starfield-BhheMtgG.js"
     ],
     "css": [
       "assets/app-yAZhgLQq.css"
     ]
   },
   "resources/js/app.jsx": {
-    "file": "assets/app-CrOkY4-w.js",
+    "file": "assets/app-BlgsoXHx.js",
     "name": "app",
     "src": "resources/js/app.jsx",
     "isEntry": true,
