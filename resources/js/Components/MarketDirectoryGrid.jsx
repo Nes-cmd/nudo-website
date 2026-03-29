@@ -237,9 +237,9 @@ export default function MarketDirectoryGrid({ categories = [] }) {
                 >
                     በገበያ ማዕከሉ ያሉ አገልግሎቶች
                 </h2>
-                <p className="mt-2 text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                {/* <p className="mt-2 text-sm sm:text-base text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                     በምድብ የተደራጁ የንግድ ተቋማት እና አገልግሎቶች።
-                </p>
+                </p> */}
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
