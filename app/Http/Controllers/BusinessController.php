@@ -19,6 +19,7 @@ class BusinessController extends Controller
 
         return Inertia::render('Businesses', [
             'businesses' => $businesses,
+            'marketDirectory' => config('market_directory.categories', []),
         ]);
     }
 

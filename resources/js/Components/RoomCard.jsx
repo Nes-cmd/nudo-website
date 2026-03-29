@@ -60,13 +60,7 @@ export default function RoomCard({ room }) {
                     </h3>
                 </Link>
 
-                {/* Description */}
-                {room.description && room.description !== room.name && (
-                    <p className="text-sm text-gray-600 dark:text-gray-300">
-                        {room.description}
-                    </p>
-                )}
-
+               
                 {/* Features */}
                 {hasFeatures && (
                     <div className="flex flex-wrap gap-2">

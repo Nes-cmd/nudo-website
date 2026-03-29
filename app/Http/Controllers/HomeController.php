@@ -17,6 +17,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // Static tenant directory (Amharic) — edit config/market_directory.php
         // Fetch rooms from external management API via RoomController helper
         $roomController = app(RoomController::class);
         $allRooms = $roomController->fetchAvailableUnits();
@@ -36,6 +37,7 @@ class HomeController extends Controller
             'rooms' => $rooms,
             'businesses' => $businesses,
             'heroes' => $heroes,
+            'marketDirectory' => config('market_directory.categories', []),
         ]);
     }
 }

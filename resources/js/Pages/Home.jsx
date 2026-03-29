@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from '@inertiajs/react';
+import MarketDirectoryGrid from '@/Components/MarketDirectoryGrid';
 import MainLayout from '../Layouts/MainLayout';
 
-export default function Home({ rooms = [], businesses = [], heroes = [] }) {
+export default function Home({ rooms = [], businesses = [], heroes = [], marketDirectory = [] }) {
     const scrollRef = useRef(null);
     const [activeIndex, setActiveIndex] = useState(0);
     const [heroImageIndex, setHeroImageIndex] = useState(0);
@@ -255,43 +256,49 @@ export default function Home({ rooms = [], businesses = [], heroes = [] }) {
                                                     </div>
                                                 )}
 
-                                                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/15 to-transparent opacity-90 group-hover:opacity-100 transition-opacity" />
+                                                <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-black/10 opacity-95 group-hover:opacity-100 transition-opacity" />
 
                                                 {/* Category badge */}
-                                                <div className="absolute top-4 left-4">
-                                                    <span className="inline-flex items-center rounded-full bg-white/15 backdrop-blur px-3 py-1 text-[11px] font-medium uppercase tracking-wide text-white border border-white/20">
+                                                <div className="absolute top-4 left-4 z-[1]">
+                                                    <span className="inline-flex items-center rounded-full bg-black/50 backdrop-blur-md px-3 py-1.5 text-[11px] font-medium uppercase tracking-wide text-white border border-white/15 shadow-md">
                                                         {business.category}
                                                     </span>
                                                 </div>
 
-                                                {/* Name overlay */}
-                                                <div className="absolute bottom-4 left-4 right-4">
-                                                    <h3 className="text-xl sm:text-2xl font-semibold text-white drop-shadow-sm mb-2">
-                                                        {business.name}
-                                                    </h3>
-                                                    <p className="text-sm text-white/90 line-clamp-2">
-                                                        {business.description}
-                                                    </p>
-                                                </div>
+                                                {/* Services on photo — glass panel for contrast on bright images */}
+                                                {(business.services || []).length > 0 && (
+                                                    <div className="absolute bottom-4 left-4 right-4 z-[1]">
+                                                        <div className="">
+                                                            <div className="flex flex-wrap gap-2">
+                                                                {(business.services || []).slice(0, 3).map((service) => (
+                                                                    <span
+                                                                        key={service}
+                                                                        className="inline-flex items-center rounded-full bg-gray-700 px-2.5 py-1 text-xs font-medium text-primary-400 border border-gray-700/20"
+                                                                    >
+                                                                        {service}
+                                                                    </span>
+                                                                ))}
+                                                                {(business.services || []).length > 3 && (
+                                                                    <span className="inline-flex items-center rounded-full bg-gray-700 px-2.5 py-1 text-xs font-medium text-white/90 border border-white/15">
+                                                                        +{(business.services || []).length - 3} ሌሎችም
+                                                                    </span>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                )}
                                             </div>
 
-                                            {/* Services preview */}
-                                            <div className="p-4 bg-white dark:bg-slate-900">
-                                                <div className="flex flex-wrap gap-2">
-                                                    {business.services.slice(0, 3).map((service) => (
-                                                        <span
-                                                            key={service}
-                                                            className="inline-flex items-center rounded-full bg-primary-50 dark:bg-primary-500/15 px-2.5 py-1 text-xs font-medium text-primary-700 dark:text-primary-300"
-                                                        >
-                                                            {service}
-                                                        </span>
-                                                    ))}
-                                                    {business.services.length > 3 && (
-                                                        <span className="inline-flex items-center rounded-full bg-gray-100 dark:bg-slate-800 px-2.5 py-1 text-xs font-medium text-gray-600 dark:text-gray-300">
-                                                            +{business.services.length - 3} ሌሎችም
-                                                        </span>
-                                                    )}
-                                                </div>
+                                            {/* Name & description */}
+                                            <div className="p-4 sm:p-5 bg-white dark:bg-slate-900">
+                                                <h3 className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-primary-400 mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-300 transition-colors">
+                                                    {business.name}
+                                                </h3>
+                                                {business.description ? (
+                                                    <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-1 leading-relaxed">
+                                                        {business.description}
+                                                    </p>
+                                                ) : null}
                                             </div>
                                         </Link>
                                     );
@@ -330,6 +337,8 @@ export default function Home({ rooms = [], businesses = [], heroes = [] }) {
                         </div>
                     </div>
                 )}
+
+                <MarketDirectoryGrid categories={marketDirectory} />
             </div>
 
             {/* Available Rooms for Rent Section */}
@@ -398,13 +407,6 @@ export default function Home({ rooms = [], businesses = [], heroes = [] }) {
                                                 {room.name}
                                             </h3>
                                         </Link>
-
-                                        {/* Description */}
-                                        {room.description && room.description !== room.name && (
-                                            <p className="text-sm text-gray-600 dark:text-gray-300">
-                                                {room.description}
-                                            </p>
-                                        )}
 
                                         {/* Features */}
                                         {hasFeatures && (
@@ -476,7 +478,7 @@ export default function Home({ rooms = [], businesses = [], heroes = [] }) {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center mb-10">
                         <span className="inline-flex items-center rounded-full bg-primary-100 dark:bg-primary-500/15 px-4 py-2 text-xs font-medium text-primary-700 dark:text-primary-300 uppercase tracking-wide mb-4">
-                           በካርታ ላይ ቦታችንን ያግኙን
+                           በካርታ ላይ ያግኙን
                         </span>
                         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-3">
                         ኑዶ የገበያ ማዕከል

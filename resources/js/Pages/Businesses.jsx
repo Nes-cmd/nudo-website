@@ -1,7 +1,8 @@
+import MarketDirectoryGrid from '@/Components/MarketDirectoryGrid';
 import MainLayout from '../Layouts/MainLayout';
 import { Link } from '@inertiajs/react';
 
-export default function Businesses({ businesses = [] }) {
+export default function Businesses({ businesses = [], marketDirectory = [] }) {
 
     const toUrl = (path) =>
         path && /^https?:\/\//i.test(path) ? path : `/storage/${path}`;
@@ -133,7 +134,9 @@ export default function Businesses({ businesses = [] }) {
                         <p className="text-gray-500 dark:text-gray-400">No businesses available at the moment.</p>
                     </div>
                 )}
+            <MarketDirectoryGrid categories={marketDirectory} />
             </div>
+
         </MainLayout>
     );
 }
