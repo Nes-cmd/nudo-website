@@ -5,7 +5,7 @@ import RoomCard from '@/Components/RoomCard';
 
 export default function RoomDetail({ room, otherRooms = [] }) {
     const [showPhone, setShowPhone] = useState(false);
-    const phoneNumber = '+251911234567'; // You can make this dynamic later
+    const phoneNumber = '+251920095123'; // You can make this dynamic later
 
     const formatPrice = (value) => {
         if (value === null || value === undefined) return '-';

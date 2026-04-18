@@ -26,11 +26,12 @@ export default function MainLayout({ children, title = 'Nudo' }) {
                 </div>
                 <div className="relative z-10 flex min-h-screen flex-1 flex-col">
                     <Navigation />
-                    <main className="grow">{children}</main>
+                        <main className="grow">
+                            {children}
+                        </main>
                     <Footer />
                 </div>
             </div>
         </>
     );
 }
-

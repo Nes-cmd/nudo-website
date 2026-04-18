@@ -89,10 +89,10 @@ export default function Home({ rooms = [], businesses = [], heroes = [], marketD
                             </div>
                         ))
                     ) : (
-                        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900 to-slate-950" />       
                     )}
                     {/* Dark overlay for text readability */}
-                    <div className="absolute inset-0 bg-black/60" />
+                    {/* <div className="absolute inset-0 bg-black/60" /> */}
                     {/* Gradient overlay with primary color accent */}
                     <div className="absolute inset-0 bg-linear-to-r from-primary-900/80 via-black/50 to-primary-800/70" />
                 </div>
@@ -102,14 +102,14 @@ export default function Home({ rooms = [], businesses = [], heroes = [], marketD
                     <div className="max-w-4xl mx-auto text-center text-white">
                         <span className="inline-flex items-center rounded-full bg-primary-500/20 px-4 py-2 text-xs font-medium tracking-wide uppercase text-white/90 border border-primary-400/30 backdrop-blur-sm mb-6">
                             Premium Commercial Building
-                        </span>
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
+                        </span> 
+                        <h1 className="text-4xl text-primary-500 sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
                             እንኳን ደህና መጡ! {' '}
-                            <span className="text-primary-500">
+                            <span className="text-primary-600">
                                 ኑዶ የገበያ ማዕከል
                             </span>
                         </h1>
-                        <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8 leading-relaxed">
+                        <p className="text-lg py-2 bg-black/60 rounded-lg sm:text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-8 leading-relaxed">
                             ንግድዎ የሚመነደግበት፣ ፈጠራ ከዕድል ጋር የሚገናኝበት ቀዳሚ የንግድ ሕንፃ። ደረጃቸውን የጠበቁ ቢሮዎችን እና ምቹ የሥራ ቦታዎችን የሚያገኙበት ህንፃ።
                         </p>
 
@@ -135,7 +135,7 @@ export default function Home({ rooms = [], businesses = [], heroes = [], marketD
                         <dl className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
                             <div className="space-y-2">
                                 <dt className="text-white/80 text-sm uppercase tracking-wide">የንግድ ተቋማት</dt>
-                                <dd className="text-3xl sm:text-4xl font-bold">250+</dd>
+                                <dd className="text-3xl sm:text-4xl font-bold">240+</dd>
                             </div>
                             <div className="space-y-2">
                                 <dt className="text-white/80 text-sm uppercase tracking-wide">አገልግሎቶች</dt>
@@ -143,7 +143,7 @@ export default function Home({ rooms = [], businesses = [], heroes = [], marketD
                             </div>
                             <div className="space-y-2">
                                 <dt className="text-white/80 text-sm uppercase tracking-wide">ኤጀንሲዎች</dt>
-                                <dd className="text-3xl sm:text-4xl font-bold">50+</dd>
+                                <dd className="text-3xl sm:text-4xl font-bold">20+</dd>
                             </div>
                         </dl>
                     </div>
@@ -500,4 +500,6 @@ export default function Home({ rooms = [], businesses = [], heroes = [], marketD
         </MainLayout>
     );
 }
+
+
 

@@ -80,10 +80,10 @@ export default function About() {
     ];
 
     const stats = [
-        { label: 'ዓመት በስራ ላይላይ', value: '15+' },
+        { label: 'ዓመት በስራ ላይላይ', value: '12+' },
         { label: 'የንግድ ተቋማትተቋማት', value: '210+' },
         { label: 'የተለያዩ አገልግሎቶች', value: '300+' },
-        { label: 'በየቀን የሚገለገሉ ደንበኞች', value: '3000+' },
+        { label: 'በየቀን የሚገለገሉ ደንበኞች', value: '3000+' }, 
     ];
 
     return (
@@ -146,7 +146,7 @@ export default function About() {
                                     ከ15 ዓመታት በላይ በታማኝነት ያገለገለው ሕንፃችን፤ ለንግድ ተቋማትና ለገበያተኞች ተመራጭ ቦታ ሆኗል። ብዙዎች ኑዶን የመረጡት ባለው ምቹ ቦታ፣ ተደራሽነት እና ለሥራ ተስማሚ በሆነው መዋቅሩ ነው።
                                 </p>
                                 <p>
-                                    ዛሬም ቢሆን ኑዶ ማርኬት ሴንተር የጥንት ራዕዩን ሳይዘነጋ ራሱን እያዘመነ ይገኛል፤ ይህም ሰዎች በጋራ የሚሰሩበት፣ ደንበኞችዎ በቀላሉ እርስዎ ጋር የሚደርሱበት፣ የሚገበያዩበት እና አገልግሎቶችን በቀላሉ የሚያገኙበት፣ ንጹህ፣ ደህንነቱ የተጠበቀ እና እንግዳ ተቀባይ የንግድ ስፍራ መሆን ነው። ይህ ሕንፃ ከአሸዋና ከመስታወት የተለየ የሚሆነው የአካባቢውን ማህበረሰብ በታማኝነት ለማገልገል የባለቤቶቹ የረጅም ጊዜ ቃል ኪዳን መገለጫ ሲሆን ነው።
+                                    ዛሬም ቢሆን ኑዶ ማርኬት ሴንተር የጥንት ራዕዩን ሳይዘነጋ ራሱን እያዘመነ ይገኛል፤ ይህም ሰዎች በጋራ የሚሰሩበት፣ ደንበኞችዎ በቀላሉ እርስዎ ጋር የሚደርሱበት፣ የሚገበያዩበት እና አገልግሎቶችን በቀላሉ የሚያገኙበት፣ ንጹህ፣ ደህንነቱ የተጠበቀ እና እንግዳ ተቀባይ የንግድ ስፍራ መሆን ነው። ሕንፃ ከሚሰጠው ትልቁ ጥቅም ዋነኛው የአካባቢውን ማህበረሰብ በታማኝነት ለማገልገል የባለቤቶቹ የረጅም ጊዜ ቃል ኪዳን መገለጫ ሲሆን ነው።
                                 </p>
                             </div>
                         </div>
@@ -159,7 +159,7 @@ export default function About() {
                                 />
                             </div>
                             <div className="absolute -bottom-6 -left-6 bg-white dark:bg-slate-900 rounded-xl p-6 shadow-xl border border-gray-200 dark:border-slate-700 hidden lg:block">
-                                <div className="text-3xl font-bold text-primary-600 dark:text-primary-300 mb-1">15+</div>
+                                <div className="text-3xl font-bold text-primary-600 dark:text-primary-300 mb-1">12+</div>
                                 <div className="text-sm text-gray-600 dark:text-gray-300">አመታት በግልጋሎት ላይ</div>
                             </div>
                         </div>
